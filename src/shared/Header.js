@@ -65,7 +65,7 @@ const Header = () => {
       </div>
 
       {/* open modal */}
-      {openModal && <Modal content={<SignIn />} />}
+      {openModal && <Modal openModal={openModal} setOpenModal={setOpenModal} content={<SignIn />} />}
     </section>
   );
 };
