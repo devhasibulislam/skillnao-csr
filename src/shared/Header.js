@@ -63,7 +63,7 @@ const Header = () => {
           </div>
         </div>
       </div>
-      
+
       {/* open modal */}
       {openModal && <Modal content={<SignIn />} />}
     </section>
