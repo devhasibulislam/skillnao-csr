@@ -1,9 +1,11 @@
 import React, { useState } from "react";
 import Modal from "./Modal";
+import Reset from "./Reset";
 import SignUp from "./SignUp";
 
 const SignIn = () => {
-  const [openModal, setOpenModal] = useState("");
+  const [openSignUpModal, setOpenSignUpModal] = useState(false);
+  const [openForgotModal, setOpenForgotModal] = useState(false);
 
   return (
     <section>
@@ -61,7 +63,7 @@ const SignIn = () => {
               <label
                 htmlFor="skillnao-modal"
                 className="text-[#ffb96d] hover:underline"
-                onClick={() => setOpenModal("signup")}
+                onClick={() => setOpenSignUpModal(true)}
               >
                 Create account
               </label>
@@ -69,7 +71,7 @@ const SignIn = () => {
             <p className="hover:underline">
               <label
                 htmlFor="skillnao-modal"
-                onClick={() => setOpenModal("forgot")}
+                onClick={() => setOpenForgotModal(true)}
               >
                 Forgot password?
               </label>
@@ -79,8 +81,20 @@ const SignIn = () => {
       </div>
 
       {/* open modal */}
-      {openModal === "signup" && <Modal content={<SignUp />} />}
-      {openModal === "forgot" && <Modal />}
+      {openSignUpModal && (
+        <Modal
+          openModal={openSignUpModal}
+          setOpenModal={setOpenSignUpModal}
+          content={<SignUp />}
+        />
+      )}
+      {openForgotModal && (
+        <Modal
+          openModal={openForgotModal}
+          setOpenModal={setOpenForgotModal}
+          content={<Reset />}
+        />
+      )}
     </section>
   );
 };
