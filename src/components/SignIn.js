@@ -44,9 +44,6 @@ const SignIn = () => {
 
           {/* sign in button */}
           <div className="text-center mt-6">
-            {/* <button className="btn btn-wide bg-[#006243] text-white hover:bg-white hover:text-black border-0">
-              Sign In
-            </button> */}
             <label
               htmlFor="skillnao-modal"
               className="btn btn-wide bg-[#006243] hover:bg-white hover:text-black border-0"

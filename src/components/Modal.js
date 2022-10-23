@@ -8,8 +8,8 @@ const Modal = ({ content }) => {
         <div className="modal-box">
           {/* close button */}
           <label
-            for="skillnao-modal"
-            class="btn btn-sm btn-square absolute right-2 top-2"
+            htmlFor="skillnao-modal"
+            className="btn btn-sm btn-square absolute right-2 top-2"
           >
             ✕
           </label>
