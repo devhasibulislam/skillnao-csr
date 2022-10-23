@@ -1,24 +1,50 @@
 import React from "react";
 
-const Modal = ({ content }) => {
+const Modal = ({ openModal, setOpenModal, content }) => {
   return (
-    <section>
-      <input type="checkbox" id="skillnao-modal" className="modal-toggle" />
-      <div className="modal modal-bottom sm:modal-middle">
-        <div className="modal-box">
-          {/* close button */}
-          <label
-            htmlFor="skillnao-modal"
-            className="btn btn-sm btn-square absolute right-2 top-2"
-          >
-            ✕
-          </label>
+    <>
+      {openModal && (
+        <div
+          class="relative z-10"
+          aria-labelledby="modal-title"
+          role="dialog"
+          aria-modal="true"
+        >
+          <div class="fixed inset-0 bg-gray-500 bg-opacity-75 transition-opacity"></div>
 
-          {/* modal content */}
-          {content}
+          <div class="fixed inset-0 z-10 overflow-y-auto">
+            <div class="flex min-h-full items-end justify-center p-4 text-center sm:items-center sm:p-0">
+              <div class="relative transform overflow-hidden rounded-lg bg-white text-left shadow-xl transition-all sm:w-full sm:max-w-lg">
+                <div class="bg-[#2a2f3b] px-4 pt-5 pb-4 sm:p-6 sm:pb-4">
+                  <div className="text-right">
+                    <button
+                      className="btn btn-sm btn-square"
+                      onClick={() => setOpenModal(false)}
+                    >
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        className="h-6 w-6"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        stroke="currentColor"
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          strokeWidth="2"
+                          d="M6 18L18 6M6 6l12 12"
+                        />
+                      </svg>
+                    </button>
+                  </div>
+                  {content}
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
-      </div>
-    </section>
+      )}
+    </>
   );
 };
 
