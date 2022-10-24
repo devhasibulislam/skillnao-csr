@@ -1,11 +1,41 @@
+import axios from "axios";
 import React, { useState } from "react";
 import Modal from "./Modal";
 import Reset from "./Reset";
 import SignUp from "./SignUp";
+import toast from "react-hot-toast";
 
 const SignIn = () => {
   const [openSignUpModal, setOpenSignUpModal] = useState(false);
   const [openForgotModal, setOpenForgotModal] = useState(false);
+
+  function handleSignIn(event) {
+    event.preventDefault();
+
+    const userSignInInfo = {
+      email: event.target.email.value,
+      password: event.target.password.value,
+    };
+
+    axios
+      .post("http://localhost:8080/user/signin", userSignInInfo)
+      .then((response) => {
+        if (response.data.acknowledgement) {
+          toast.success("Successfully signed in new user");
+          localStorage.setItem(
+            "skillNaoToken",
+            JSON.stringify(response.data.data.token)
+          );
+        }
+      })
+      .catch((error) => {
+        if (error) {
+          toast.error("Sign up error, retry.");
+        }
+      });
+
+    event.target.reset();
+  }
 
   return (
     <section>
@@ -13,7 +43,7 @@ const SignIn = () => {
         <h1 className="font-bold text-2xl text-center border-b-2 border-b-[#ffb96d] w-fit mx-auto mb-8">
           সাইন- ইন করুন
         </h1>
-        <form action="">
+        <form onSubmit={handleSignIn}>
           {/* email input */}
           <div className="flex justify-between items-center">
             <label htmlFor="email">
@@ -46,12 +76,11 @@ const SignIn = () => {
 
           {/* sign in button */}
           <div className="text-center mt-6">
-            <label
-              htmlFor="skillnao-modal"
+            <input
+              type="submit"
               className="btn btn-wide bg-[#006243] hover:bg-white hover:text-black border-0"
-            >
-              Sign In
-            </label>
+              value="Sign In"
+            />
           </div>
         </form>
 
