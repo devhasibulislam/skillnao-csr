@@ -3,9 +3,11 @@ import { Link } from "react-router-dom";
 import headerLogo from "../assets/header_logo.svg";
 import Modal from "../components/Modal";
 import SignIn from "../components/SignIn";
+import useGetUser from "../utils/useGetUser";
 
 const Header = () => {
   const [openModal, setOpenModal] = useState(false);
+  const { user } = useGetUser();
 
   const dropDownMenu = [
     {
@@ -32,6 +34,11 @@ const Header = () => {
           {/* buttons */}
           <div className="flex items-center gap-x-4">
             <div>
+              <span className="btn btn-outline text-white rounded hover:text-black hover:bg-white">
+                <Link to={"dashboard"}>ড্যাশবোর্ড</Link>
+              </span>
+            </div>
+            <div>
               <div className="dropdown dropdown-end">
                 <label
                   tabIndex={0}
@@ -55,9 +62,19 @@ const Header = () => {
               <label
                 htmlFor="skillnao-modal"
                 className="btn rounded modal-button border-0 text-black bg-white hover:bg-[#ffb663]"
-                onClick={() => setOpenModal(true)}
               >
-                লগ-ইন
+                {user ? (
+                  <span
+                    onClick={() => {
+                      localStorage.removeItem("skillNaoToken");
+                      window.location.reload();
+                    }}
+                  >
+                    লগ-আউট
+                  </span>
+                ) : (
+                  <span onClick={() => setOpenModal(true)}>লগ-ইন</span>
+                )}
               </label>
             </div>
           </div>
@@ -65,7 +82,13 @@ const Header = () => {
       </div>
 
       {/* open modal */}
-      {openModal && <Modal openModal={openModal} setOpenModal={setOpenModal} content={<SignIn />} />}
+      {openModal && (
+        <Modal
+          openModal={openModal}
+          setOpenModal={setOpenModal}
+          content={<SignIn />}
+        />
+      )}
     </section>
   );
 };
