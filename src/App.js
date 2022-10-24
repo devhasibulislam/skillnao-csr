@@ -1,12 +1,16 @@
-
-import './App.css';
-
+import "./App.css";
+import Header from "./shared/Header";
+import "./App.css";
+import { Toaster } from "react-hot-toast";
+import Footer from "./shared/Footer";
 
 function App() {
   return (
-   <div>
-
-   </div>
+    <div className="App">
+      <Header />
+      <Footer />
+      <Toaster />
+    </div>
   );
 }
 
