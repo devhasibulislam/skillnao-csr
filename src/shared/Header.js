@@ -16,11 +16,11 @@ const Header = () => {
   const dropDownMenu = [
     {
       title: "Academic",
-      anchor: "/academic",
+      anchor: "/category/academic",
     },
     {
       title: "Professional",
-      anchor: "/professional",
+      anchor: "/category/professional",
     },
   ];
 

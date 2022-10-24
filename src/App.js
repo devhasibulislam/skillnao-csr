@@ -8,6 +8,9 @@ import ManageUsers from "./routes/ManageUsers";
 import ManageCourses from "./routes/ManageCourses";
 import AddCourse from "./routes/AddCourse";
 import useGetUser from "./utils/useGetUser";
+import Category from "./routes/Category";
+import Academic from "./routes/Academic";
+import Professional from "./routes/Professional";
 
 function App() {
   const { user, isLoading } = useGetUser();
@@ -21,7 +24,15 @@ function App() {
       {/* header section */}
       <Header />
 
-      {/* routers segments */}
+      {/* routers segments => dashboard */}
+      <Routes>
+        <Route path="/category" element={<Category />}>
+          <Route path="academic" element={<Academic />} />
+          <Route path="professional" element={<Professional />} />
+        </Route>
+      </Routes>
+
+      {/* routers segments => dashboard */}
       <Routes>
         <Route
           path="/dashboard"
