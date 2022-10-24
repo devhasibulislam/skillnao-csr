@@ -1,6 +1,5 @@
 import "./App.css";
 import Header from "./shared/Header";
-import "./App.css";
 import { Toaster } from "react-hot-toast";
 import Footer from "./shared/Footer";
 import { Route, Routes } from "react-router-dom";
