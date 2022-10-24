@@ -40,12 +40,11 @@ const Reset = () => {
 
           {/* sign in button */}
           <div className="text-center mt-6">
-            <label
-              htmlFor="skillnao-modal"
+            <input
+              type="submit"
               className="btn btn-wide bg-[#006243] hover:bg-white hover:text-black border-0"
-            >
-              Reset
-            </label>
+              value="Reset"
+            />
           </div>
         </form>
       </div>
