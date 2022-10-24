@@ -1,9 +1,36 @@
+import axios from "axios";
 import React, { useState } from "react";
 import Modal from "./Modal";
 import SignIn from "./SignIn";
+import toast from "react-hot-toast";
 
 const SignUp = () => {
   const [openModal, setOpenModal] = useState(false);
+
+  function handleSignIn(event) {
+    event.preventDefault();
+
+    const userSignUpInfo = {
+      name: event.target.name.value,
+      email: event.target.email.value,
+      password: event.target.password.value,
+      whatsApp: (event.target.number.value).toString().length === 11 ? `+88${event.target.number.value}` : `+880${event.target.number.value}`,
+    };
+
+    axios
+      .post("http://localhost:8080/user/signup", userSignUpInfo)
+      .then((data) => {
+        if (data.data.acknowledgement) {
+          toast.success("Successfully signed up new user.");
+          event.target.reset();
+        }
+      })
+      .catch((error) => {
+        if (error) {
+          toast.error("Sign up error, retry.");
+        }
+      });
+  }
 
   return (
     <section>
@@ -11,7 +38,7 @@ const SignUp = () => {
         <h1 className="font-bold text-2xl text-center border-b-2 border-b-[#ffb96d] w-fit mx-auto mb-8">
           একাউন্ট তৈরি করুণ
         </h1>
-        <form action="">
+        <form onSubmit={handleSignIn}>
           {/* email input */}
           <div className="flex justify-between items-center">
             <label htmlFor="email">
@@ -76,12 +103,11 @@ const SignUp = () => {
 
           {/* sign up button */}
           <div className="text-center mt-6">
-            <label
-              htmlFor="skillnao-modal"
+            <input
+              type="submit"
               className="btn btn-wide bg-[#006243] hover:bg-white hover:text-black border-0"
-            >
-              Sign Up
-            </label>
+              value="Sign Up"
+            />
           </div>
         </form>
 
