@@ -9,8 +9,6 @@ const Header = () => {
   const [openModal, setOpenModal] = useState(false);
   const { user, isLoading } = useGetUser();
 
-  console.log(user);
-
   if (isLoading) {
     return <p>Loading...</p>;
   }
