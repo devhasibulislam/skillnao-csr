@@ -51,7 +51,15 @@ const ManageCourses = () => {
                 </svg>
               </button>
               <figure>
-                <img src={course.thumbnail} alt={course.title} />
+                <img
+                  src={
+                    course.thumbnail.includes("http")
+                      ? course.thumbnail
+                      : `http://localhost:8080/${course.thumbnail}`
+                  }
+                  alt={course.title}
+                  className="h-[197px] w-[272px] object-cover"
+                />
               </figure>
               <div className="card-body">
                 <h2 className="card-title justify-between">
