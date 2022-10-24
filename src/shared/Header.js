@@ -7,7 +7,13 @@ import useGetUser from "../utils/useGetUser";
 
 const Header = () => {
   const [openModal, setOpenModal] = useState(false);
-  const { user } = useGetUser();
+  const { user, isLoading } = useGetUser();
+
+  console.log(user);
+
+  if (isLoading) {
+    return <p>Loading...</p>;
+  }
 
   const dropDownMenu = [
     {
@@ -33,11 +39,13 @@ const Header = () => {
 
           {/* buttons */}
           <div className="flex items-center gap-x-4">
-            <div>
-              <span className="btn btn-outline text-white rounded hover:text-black hover:bg-white">
-                <Link to={"dashboard"}>ড্যাশবোর্ড</Link>
-              </span>
-            </div>
+            {user?.role === "admin" && (
+              <div>
+                <span className="btn btn-outline text-white rounded hover:text-black hover:bg-white">
+                  <Link to={"dashboard"}>ড্যাশবোর্ড</Link>
+                </span>
+              </div>
+            )}
             <div>
               <div className="dropdown dropdown-end">
                 <label
