@@ -5,17 +5,17 @@ const Modal = ({ openModal, setOpenModal, content }) => {
     <>
       {openModal && (
         <div
-          class="relative z-10"
+          className="relative z-10"
           aria-labelledby="modal-title"
           role="dialog"
           aria-modal="true"
         >
-          <div class="fixed inset-0 bg-gray-500 bg-opacity-75 transition-opacity"></div>
+          <div className="fixed inset-0 bg-gray-500 bg-opacity-75 transition-opacity"></div>
 
-          <div class="fixed inset-0 z-10 overflow-y-auto">
-            <div class="flex min-h-full items-end justify-center p-4 text-center sm:items-center sm:p-0">
-              <div class="relative transform overflow-hidden rounded-lg bg-white text-left shadow-xl transition-all sm:w-full sm:max-w-lg">
-                <div class="bg-[#2a2f3b] px-4 pt-5 pb-4 sm:p-6 sm:pb-4">
+          <div className="fixed inset-0 z-10 overflow-y-auto">
+            <div className="flex min-h-full items-end justify-center p-4 text-center sm:items-center sm:p-0">
+              <div className="relative transform overflow-hidden rounded-lg bg-white text-left shadow-xl transition-all sm:w-full sm:max-w-lg">
+                <div className="bg-[#2a2f3b] px-4 pt-5 pb-4 sm:p-6 sm:pb-4">
                   <div className="text-right">
                     <button
                       className="btn btn-sm btn-square"
