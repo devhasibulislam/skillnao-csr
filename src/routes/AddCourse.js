@@ -26,7 +26,7 @@ const AddCourse = () => {
       title: event.target.title.value,
       category: event.target.category.value,
       about: event.target.about.value,
-      thumbnail: thumbnail,
+      thumbnail: thumbnail || undefined,
       description: {
         reason: event.target.reason.value,
         purpose: event.target.purpose.value,
