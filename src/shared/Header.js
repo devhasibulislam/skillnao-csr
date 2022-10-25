@@ -30,7 +30,7 @@ const Header = () => {
         <div className="flex justify-between">
           {/* logo */}
           <div>
-            <Link to={"/"}>
+            <Link to={"/home"}>
               <img src={headerLogo} alt="skill nao logo" />
             </Link>
           </div>
@@ -50,7 +50,7 @@ const Header = () => {
                   tabIndex={0}
                   className="btn rounded m-1 border-0 text-black bg-[#ffb663] hover:bg-white"
                 >
-                  কি হতে চাও?
+                  কি হতে চাও? ▽
                 </label>
                 <ul
                   tabIndex={0}

@@ -17,7 +17,7 @@ function useGetSpecificCourse(id) {
   );
 
   return {
-    courses: data?.data,
+    course: data?.data,
     isLoading: !error && !data?.data,
     isError: error,
   };

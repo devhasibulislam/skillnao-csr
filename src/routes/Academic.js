@@ -1,6 +1,6 @@
 import React from "react";
 import useGetCoursesWithQuery from "../utils/useGetCoursesWithQuery";
-import Card from "./Card";
+import Card from "../components/Card";
 
 const Academic = () => {
   const { courses, isLoading } = useGetCoursesWithQuery("category=academic");
@@ -18,7 +18,7 @@ const Academic = () => {
       <div className="grid lg:grid-cols-4 md:grid-cols-2 grid-cols-1 lg:gap-8 md:gap-6 gap-y-4">
         {courses.map((course, index) => (
           <Card key={index} course={course} />
-        ))}
+        )).reverse()}
       </div>
     </section>
   );
