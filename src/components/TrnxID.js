@@ -1,47 +1,41 @@
-import axios from "axios";
-import React from "react";
+import React, { useState } from "react";
 import toast from "react-hot-toast";
-import useGetUser from "../utils/useGetUser";
+import addCourseId from "../utils/useCourseIds";
+import ConfirmOrder from "./ConfirmOrder";
+import Modal from "./Modal";
 
-const TrnxID = () => {
-  const { user, isLoading } = useGetUser();
-
-  if (isLoading) {
-    return <p>Loading...</p>;
-  }
+const TrnxID = ({ user, courseId }) => {
+  const [openModal, setOpenModal] = useState(false);
 
   async function handleTrnxID(event) {
     event.preventDefault();
 
     const trnxInfo = {
-      name: event.target.name.value,
-      email: event.target.email.value,
-      whatsApp: event.target.whatsApp.value,
-      trnxID: event.target.trnx.value,
+      transactionInfo: [
+        {
+          transactionID: event.target.trnx.value,
+          courseID: courseId,
+        },
+      ],
     };
 
-    // console.log(trnxInfo);
-
-    // const { data } = await axios.patch(
-    //   `http://localhost:8080/user/${id}`,
-    //   trnxInfo
-    // );
-
-    // console.log(data);
-
     const updateUserWithTrnxID = async () => {
-      const request = await fetch(`http://localhost:8080/user/${user._id}`, {
-        method: "PATCH",
-        headers: {
-          "content-type": "application/json",
-          authorization: `Bearer ${localStorage.getItem("skillNaoToken")}`,
-        },
-        body: JSON.stringify(trnxInfo),
-      });
+      const request = await fetch(
+        `http://localhost:8080/user/transaction/${user._id}`,
+        {
+          method: "PATCH",
+          headers: {
+            "content-type": "application/json",
+            authorization: `Bearer ${localStorage.getItem("skillNaoToken")}`,
+          },
+          body: JSON.stringify(trnxInfo),
+        }
+      );
       const response = await request.json();
       console.log(response);
       if (response.acknowledgement) {
         toast.success("TrnxID accepted and store on DB.");
+        addCourseId(courseId);
         event.target.reset();
       }
     };
@@ -120,10 +114,20 @@ const TrnxID = () => {
           <input
             type="submit"
             className="btn btn-wide bg-[#006243] hover:bg-white hover:text-black border-0"
-            value="Submit"
+            onClick={() => setOpenModal(true)}
+            value="কনফার্ম কর"
           />
         </div>
       </form>
+
+      {/* ask to open confirm modal */}
+      {openModal && (
+        <Modal
+          openModal={openModal}
+          setOpenModal={setOpenModal}
+          content={<ConfirmOrder />}
+        />
+      )}
     </section>
   );
 };
