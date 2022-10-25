@@ -26,7 +26,7 @@ const Card = ({ course }) => {
               : `http://localhost:8080/${course.thumbnail}`
           }
           alt={course.title}
-          className="h-[276px] w-[380px] object-cover"
+          className="h-[380px] w-[525px] object-cover"
         />
       </figure>
       <div className="card-body">

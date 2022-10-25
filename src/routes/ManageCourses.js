@@ -35,7 +35,7 @@ const ManageCourses = () => {
         </h2>
 
         {/* display courses */}
-        <section className="grid lg:grid-cols-4 md:grid-cols-2 grid-cols-1 lg:gap-8 md:gap-6 gap-y-4">
+        <section className="grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 lg:gap-8 md:gap-6 gap-y-4">
           {courses.map((course, index) => (
             <div className="card bg-base-100 shadow-xl relative" key={index}>
               <button
@@ -65,7 +65,7 @@ const ManageCourses = () => {
                       : `http://localhost:8080/${course.thumbnail}`
                   }
                   alt={course.title}
-                  className="h-[276px] w-[380px] object-cover"
+                  className="h-[380px] w-[525px] object-cover"
                 />
               </figure>
               <div className="card-body">
