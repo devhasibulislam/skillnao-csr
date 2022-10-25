@@ -44,3 +44,18 @@
 .active-content {
   display: block;
 }
+
+
+.reviewBg {
+  background-image: url("../src/assets/home/review/bg-top.svg"),
+    url(../src/assets/home/review/bg.svg),
+    url("../src/assets/home/review/bg-bottom.svg");
+  background-position: right top, center, left bottom;
+  background-repeat: no-repeat, no-repeat, no-repeat;
+}
+
+/* Our partner section bg */
+.partner {
+  background: linear-gradient(180deg, white 50%, #181818 50%);
+}
+
