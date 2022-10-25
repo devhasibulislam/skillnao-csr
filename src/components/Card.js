@@ -55,7 +55,7 @@ const Card = ({ course }) => {
         <Modal
           openModal={openModal}
           setOpenModal={setOpenModal}
-          content={<TrnxID />}
+          content={<TrnxID courseId={course._id} user={user} />}
         />
       ) : (
         user?.role !== "admin" && (
