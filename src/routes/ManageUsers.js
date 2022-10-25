@@ -66,11 +66,22 @@ const ManageUsers = () => {
                 <td>{user.email}</td>
                 <td>{user.whatsApp}</td>
                 <td>
-                  <span
+                  {/* <span
                     className={`badge badge-success text-black`}
                   >
                     {user.trnxID}
-                  </span>
+                  </span> */}
+                  <select className="select select-sm select-success w-full">
+                    {user?.role === "admin" ? (
+                      <option disabled selected>
+                        No TrnxID available
+                      </option>
+                    ) : (
+                      user.transactionInfo.map((trnx, index) => (
+                        <option key={index}>{trnx.transactionID}</option>
+                      ))
+                    )}
+                  </select>
                 </td>
                 <td>{user.role}</td>
                 <td className="flex flex-row gap-x-4">
