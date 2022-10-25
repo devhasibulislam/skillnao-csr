@@ -22,10 +22,7 @@ const SignIn = () => {
       .then((response) => {
         if (response.data.acknowledgement) {
           toast.success("Successfully signed in new user");
-          localStorage.setItem(
-            "skillNaoToken",
-            JSON.stringify(response.data.data.token)
-          );
+          localStorage.setItem("skillNaoToken", response.data.data.token);
         }
       })
       .catch((error) => {
