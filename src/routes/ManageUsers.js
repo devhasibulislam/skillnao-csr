@@ -36,6 +36,7 @@ const ManageUsers = () => {
               <th>Name</th>
               <th>Email</th>
               <th>WhatsApp</th>
+              <th>Trnx ID</th>
               <th>Role</th>
               <th>Action</th>
             </tr>
@@ -47,6 +48,9 @@ const ManageUsers = () => {
                 <td>{user.name}</td>
                 <td>{user.email}</td>
                 <td>{user.whatsApp}</td>
+                <td>
+                  <span className="badge badge-success">{user.trnxID}</span>
+                </td>
                 <td>{user.role}</td>
                 <td className="flex flex-row gap-x-4">
                   {/* make admin */}
