@@ -1,15 +1,7 @@
-import axios from "axios";
 import React from "react";
 import toast from "react-hot-toast";
-import useGetUser from "../utils/useGetUser";
 
-const TrnxID = () => {
-  const { user, isLoading } = useGetUser();
-
-  if (isLoading) {
-    return <p>Loading...</p>;
-  }
-
+const TrnxID = ({ user, courseId }) => {
   async function handleTrnxID(event) {
     event.preventDefault();
 
@@ -17,17 +9,15 @@ const TrnxID = () => {
       name: event.target.name.value,
       email: event.target.email.value,
       whatsApp: event.target.whatsApp.value,
-      trnxID: event.target.trnx.value,
+      transactionInfo: [
+        {
+          transactionID: event.target.trnx.value,
+          courseID: courseId,
+        },
+      ],
     };
 
-    // console.log(trnxInfo);
-
-    // const { data } = await axios.patch(
-    //   `http://localhost:8080/user/${id}`,
-    //   trnxInfo
-    // );
-
-    // console.log(data);
+    console.log(trnxInfo);
 
     const updateUserWithTrnxID = async () => {
       const request = await fetch(`http://localhost:8080/user/${user._id}`, {
