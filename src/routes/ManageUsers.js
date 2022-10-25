@@ -10,17 +10,34 @@ const ManageUsers = () => {
     return <p>Loading...</p>;
   }
 
-  async function handleUserToAdmin(id) {
-    const { data } = await axios.patch(`http://localhost:8080/user/${id}`, {
-      role: "admin",
-    });
-    if (data.acknowledgement) {
-      toast.success("Successfully convert role from user to admin.");
-    }
+  function handleUserToAdmin(id) {
+    // translate an user to admin
+    const makeAnUserToAdmin = async () => {
+      const request = await fetch(`http://localhost:8080/user/${id}`, {
+        method: "PATCH",
+        headers: {
+          "content-type": "application/json",
+          authorization: `Bearer ${localStorage.getItem("skillNaoToken")}`,
+        },
+        body: JSON.stringify({ role: "admin" }),
+      });
+      const response = await request.json();
+      // console.log(response);
+      if (response.acknowledgement) {
+        toast.success("Successfully convert role from user to admin.");
+      }
+    };
+    makeAnUserToAdmin();
   }
 
+  // remove an user
   async function handleRemoveUser(id) {
-    const { data } = await axios.delete(`http://localhost:8080/user/${id}`);
+    const { data } = await axios.delete(`http://localhost:8080/user/${id}`, {
+      headers: {
+        "content-type": "application/json",
+        authorization: `Bearer ${localStorage.getItem("skillNaoToken")}`,
+      },
+    });
     if (data.acknowledgement) {
       toast.success("Successfully deleted user.");
     }
@@ -49,7 +66,11 @@ const ManageUsers = () => {
                 <td>{user.email}</td>
                 <td>{user.whatsApp}</td>
                 <td>
-                  <span className="badge badge-success">{user.role !== "admin" && user.trnxID}</span>
+                  <span
+                    className={`badge badge-success text-black`}
+                  >
+                    {user.trnxID}
+                  </span>
                 </td>
                 <td>{user.role}</td>
                 <td className="flex flex-row gap-x-4">
