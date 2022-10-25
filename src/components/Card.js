@@ -10,9 +10,9 @@ const Card = ({ course }) => {
   const [openModal, setOpenModal] = useState(false);
   const [disable, setDisable] = useState(false);
   const { user, isLoading } = useGetUser();
-  const navigate = useNavigate();
   const { user: transactionUser, isLoading: isLoadingTransaction } =
-    useGetTransactionUser(user._id);
+    useGetTransactionUser(user?._id);
+  const navigate = useNavigate();
 
   useEffect(() => {
     transactionUser?.transactionInfo.map((crs) =>
@@ -62,19 +62,6 @@ const Card = ({ course }) => {
           >
             অর্ডার কর
           </button>
-
-          {/* {transactionUser?.transactionInfo.map(
-            (crs) =>
-              crs.courseID.title !== course.title && (
-                <button
-                  className="btn-sm bg-[#1A6241] rounded text-white hover:text-black hover:bg-white"
-                  // disabled={disable}
-                  onClick={() => setOpenModal(true)}
-                >
-                  অর্ডার কর
-                </button>
-              )
-          )} */}
         </div>
       </div>
 
