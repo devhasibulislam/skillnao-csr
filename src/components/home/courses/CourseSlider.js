@@ -30,6 +30,7 @@ const CourseSlider = ({ courses }) => {
         autoPlay={true}
         autoPlaySpeed={5000}
         infinite={true}
+        className="py-8"
       >
         {courses.map((course) => (
           <div className="mx-4" key={course._id}>

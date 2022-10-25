@@ -15,7 +15,7 @@
     url(../src/assets//category//paper.svg),
     url(../src/assets//category//triangle.svg);
   background-size: auto;
-  background-position: center center, right top, top center, right bottom, left top, left bottom;
+  background-position: center center, 80% 20%, top center, 90% 90%, 10% 10%, 10% 90%;
   background-repeat: no-repeat;
 }
 
