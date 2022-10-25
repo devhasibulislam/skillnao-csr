@@ -73,7 +73,8 @@ const Header = () => {
                   <span
                     onClick={() => {
                       localStorage.removeItem("skillNaoToken");
-                      window.location.reload();
+                      window.location.replace("http://localhost:3000/");
+                      // window.location.reload();
                     }}
                   >
                     লগ-আউট
