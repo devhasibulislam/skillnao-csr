@@ -57,7 +57,7 @@ const CourseDescription = () => {
               : `http://localhost:8080/${course?.thumbnail}`
           }
           alt={course.title}
-          className="my-4 rounded-2xl"
+          className="my-8 rounded-2xl"
         />
 
         <div>
