@@ -9,6 +9,9 @@ const Card = ({ course }) => {
   const [openModal, setOpenModal] = useState(false);
   const { user, isLoading } = useGetUser();
   const navigate = useNavigate();
+  const handleDetails = (id) => {
+    navigate(`/popularPackages/${id}`);
+  };
 
   if (isLoading) {
     return <p>Loading...</p>;
@@ -17,7 +20,8 @@ const Card = ({ course }) => {
   return (
     <div className="card bg-base-100 shadow-xl relative">
       <figure
-        onClick={() => navigate(`/category/${course.category}/${course._id}`)}
+       onClick={() => handleDetails(course._id)}
+       
       >
         <img
           src={

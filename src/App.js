@@ -32,24 +32,8 @@ function App() {
           <Route path="academic" element={<Academic />} />
           <Route path="professional" element={<Professional />} />
         </Route>
+        <Route path="popularPackages/:id" element={<AuthGuard><CourseDescription/></AuthGuard>} />
 
-        {/* course description route */}
-        <Route
-          path="/category/academic/:id"
-          element={
-            <AuthGuard>
-              <CourseDescription />
-            </AuthGuard>
-          }
-        />
-        <Route
-          path="/category/professional/:id"
-          element={
-            <AuthGuard>
-              <CourseDescription />
-            </AuthGuard>
-          }
-        />
 
         {/* routers segments => dashboard */}
         <Route

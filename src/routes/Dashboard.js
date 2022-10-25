@@ -1,8 +1,14 @@
 import React from "react";
 import { NavLink, Outlet, useLocation } from "react-router-dom";
+import useGetUser from "../utils/useGetUser";
 
 const Dashboard = () => {
   const location = useLocation();
+  const { user, isLoading } = useGetUser();
+
+  if (isLoading) {
+    return <p>Loading...</p>;
+  }
 
   /* new routes added here, just */
   const routes = [
@@ -28,7 +34,7 @@ const Dashboard = () => {
           type="checkbox"
           className="drawer-toggle"
         />
-        <div className="drawer-content m-4">
+        <div className="drawer-content p-4">
           {/* <!-- Page content here --> */}
           <label
             htmlFor="skill-nao-drawer"
@@ -49,6 +55,14 @@ const Dashboard = () => {
               />
             </svg>
           </label>
+          <div className="text-center bg-[#1A6241] py-20 mb-4 rounded">
+            <div className="text-4xl text-white leading-relaxed font-bold">
+              <h1>
+                Welcome to Dashboard,{" "}
+                <span className="text-[#ffb96d]">{user.name}</span>
+              </h1>
+            </div>
+          </div>
           <Outlet />
         </div>
         <div className="drawer-side shadow-lg">

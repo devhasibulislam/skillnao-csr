@@ -1,5 +1,6 @@
 import React from "react";
 import { NavLink, Outlet, useLocation } from "react-router-dom";
+import CategoryBanner from "../components/CategoryBanner";
 
 const Category = () => {
   const location = useLocation();
@@ -19,12 +20,13 @@ const Category = () => {
   return (
     <section>
       <div className="drawer drawer-mobile">
+        
         <input
           id="skill-nao-drawer"
           type="checkbox"
           className="drawer-toggle"
         />
-        <div className="drawer-content m-4">
+        <div className="drawer-content p-4">
           {/* <!-- Page content here --> */}
           <label
             htmlFor="skill-nao-drawer"
@@ -45,6 +47,7 @@ const Category = () => {
               />
             </svg>
           </label>
+          <CategoryBanner />
           <Outlet />
         </div>
         <div className="drawer-side shadow-lg">
