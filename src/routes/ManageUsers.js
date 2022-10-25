@@ -22,7 +22,6 @@ const ManageUsers = () => {
         body: JSON.stringify({ role: "admin" }),
       });
       const response = await request.json();
-      // console.log(response);
       if (response.acknowledgement) {
         toast.success("Successfully convert role from user to admin.");
       }
