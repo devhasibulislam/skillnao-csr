@@ -1,7 +1,10 @@
 import React from "react";
-import { NavLink, Outlet } from "react-router-dom";
+import { NavLink, Outlet, useLocation } from "react-router-dom";
 
 const Category = () => {
+  const location = useLocation();
+  console.log(location);
+
   /* new routes added here, just */
   const routes = [
     {
@@ -56,6 +59,13 @@ const Category = () => {
                     isActive ? "font-bold underline" : undefined
                   }
                 >
+                  <input
+                    type="checkbox"
+                    className="checkbox checkbox-accent"
+                    checked={location.pathname.includes(
+                      route.title.toLowerCase()
+                    )}
+                  />{" "}
                   {route.title}
                 </NavLink>
               </li>
@@ -68,3 +78,8 @@ const Category = () => {
 };
 
 export default Category;
+
+/**
+ * current url & pathname
+ * https://bobbyhadz.com/blog/react-get-current-url#:~:text=Use%20the%20window%20object%20to,access%20the%20path%2C%20use%20window.
+ */
