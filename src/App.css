@@ -7,8 +7,6 @@
   font-family: Poppins, "Hind Siliguri";
 }
 
-
-
 /* package details tabs */
 .tabs {
   padding: 15px;
@@ -45,17 +43,15 @@
   display: block;
 }
 
-
-.reviewBg {
+/* .reviewBg {
   background-image: url("../src/assets/home/review/bg-top.svg"),
-    url(../src/assets/home/review/bg.svg),
     url("../src/assets/home/review/bg-bottom.svg");
-  background-position: right top, center, left bottom;
-  background-repeat: no-repeat, no-repeat, no-repeat;
-}
+  background-position: right top, left bottom;
+  background-repeat: no-repeat, no-repeat;
+  background-size: auto;
+} */
 
 /* Our partner section bg */
 .partner {
   background: linear-gradient(180deg, white 50%, #181818 50%);
 }
-
