@@ -13,18 +13,15 @@ function useGetUser() {
       .then((res) => res.data);
 
   const { data, error } = useSWR(
-    [
-      "http://localhost:8080/user/me",
-      JSON.parse(localStorage.getItem("skillNaoToken")),
-    ],
+    ["http://localhost:8080/user/me", localStorage.getItem("skillNaoToken")],
     fetcher
   );
 
   return {
     user: data?.data,
     isLoading: !error && !data?.data,
-    isError: error
-  }
+    isError: error,
+  };
 }
 
 export default useGetUser;

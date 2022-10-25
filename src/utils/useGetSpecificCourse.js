@@ -10,7 +10,7 @@ function useGetSpecificCourse(id) {
   const { data, error } = useSWR(
     [
       `http://localhost:8080/course/${id}`,
-      JSON.parse(localStorage.getItem("skillNaoToken")),
+      localStorage.getItem("skillNaoToken"),
     ],
     fetcher,
     { refreshInterval: 1000 }

@@ -49,7 +49,7 @@ const ManageUsers = () => {
                 <td>{user.email}</td>
                 <td>{user.whatsApp}</td>
                 <td>
-                  <span className="badge badge-success">{user.trnxID}</span>
+                  <span className="badge badge-success">{user.role !== "admin" && user.trnxID}</span>
                 </td>
                 <td>{user.role}</td>
                 <td className="flex flex-row gap-x-4">

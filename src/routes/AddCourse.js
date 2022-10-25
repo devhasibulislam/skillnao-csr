@@ -39,9 +39,7 @@ const AddCourse = () => {
         method: "POST",
         headers: {
           "content-type": "application/json",
-          authorization: `Bearer ${JSON.parse(
-            localStorage.getItem("skillNaoToken")
-          )}`,
+          authorization: `Bearer ${localStorage.getItem("skillNaoToken")}`,
         },
         body: JSON.stringify(courseInfo),
       });
