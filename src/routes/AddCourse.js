@@ -34,15 +34,24 @@ const AddCourse = () => {
       price: event.target.price.value,
     };
 
-    const { data } = await axios.post(
-      "http://localhost:8080/course/",
-      courseInfo
-    );
-
-    if (data.acknowledgement) {
-      toast.success("New course insertion complete.");
-      event.target.reset();
-    }
+    const addNewCourse = async () => {
+      const request = await fetch("http://localhost:8080/course/", {
+        method: "POST",
+        headers: {
+          "content-type": "application/json",
+          authorization: `Bearer ${JSON.parse(
+            localStorage.getItem("skillNaoToken")
+          )}`,
+        },
+        body: JSON.stringify(courseInfo),
+      });
+      const response = await request.json();
+      if (response.acknowledgement) {
+        toast.success("New course insertion complete.");
+        event.target.reset();
+      }
+    };
+    addNewCourse();
   }
 
   return (
@@ -135,7 +144,8 @@ const AddCourse = () => {
         {/* thumbnail input */}
         <div className="mb-4">
           <label className="block mb-1" htmlFor="name">
-            Course Thumbnail
+            Course Thumbnail,{" "}
+            <span className="text-red-500">less than 1MB</span>
           </label>
           <input
             type="file"

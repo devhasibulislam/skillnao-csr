@@ -5,7 +5,8 @@
     "Hasibul",
     "mytheme",
     "skillnao",
-    "tailwindcss"
+    "tailwindcss",
+    "Trnx"
   ],
   "[javascript]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"

@@ -7,7 +7,7 @@ const FooterTop = () => {
     <section>
       <footer className="footer p-10 text-base-content">
         <div>
-          <Link to={"/"}>
+          <Link to={"/home"}>
             <img src={footerLogo} alt="skill nao logo" />
           </Link>
           <p>একাডেমিক ও প্রফেশনাল ক্যারিয়ারের ভার্চুয়াল মেন্টর</p>
