@@ -14,7 +14,10 @@ const SignUp = () => {
       name: event.target.name.value,
       email: event.target.email.value,
       password: event.target.password.value,
-      whatsApp: (event.target.number.value).toString().length === 11 ? `+88${event.target.number.value}` : `+880${event.target.number.value}`,
+      whatsApp:
+        event.target.number.value.toString().length === 11
+          ? `+88${event.target.number.value}`
+          : `+880${event.target.number.value}`,
     };
 
     axios
