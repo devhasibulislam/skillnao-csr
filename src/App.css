@@ -7,6 +7,18 @@
   font-family: Poppins, "Hind Siliguri";
 }
 
+.categoryBg {
+  background-image: url(../src/assets//category//bended_circle.svg),
+    url(../src/assets//category//bag.svg),
+    url(../src/assets//category//book.svg),
+    url(../src/assets//category//hat.svg),
+    url(../src/assets//category//paper.svg),
+    url(../src/assets//category//triangle.svg);
+  background-size: auto;
+  background-position: center center, right top, top center, right bottom, left top, left bottom;
+  background-repeat: no-repeat;
+}
+
 /* package details tabs */
 .tabs {
   padding: 15px;
