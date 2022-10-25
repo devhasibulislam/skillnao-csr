@@ -28,6 +28,7 @@ const Category = () => {
         />
         <div className="drawer-content p-4">
           {/* <!-- Page content here --> */}
+        
           <label
             htmlFor="skill-nao-drawer"
             className="btn btn-outline drawer-button lg:hidden mb-4"
@@ -50,6 +51,7 @@ const Category = () => {
           <CategoryBanner />
           <Outlet />
         </div>
+     
         <div className="drawer-side shadow-lg">
           <label htmlFor="skill-nao-drawer" className="drawer-overlay"></label>
           <ul className="menu p-4 overflow-y-auto w-60 bg-base-100 text-base-content">

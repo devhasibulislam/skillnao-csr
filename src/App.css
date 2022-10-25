@@ -7,6 +7,12 @@
   font-family: Poppins, "Hind Siliguri";
 }
 
+.categoryBg{
+  background-image: url(../src/assets//category//bended_circle.svg);
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
 /* package details tabs */
 .tabs {
   padding: 15px;
