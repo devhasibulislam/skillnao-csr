@@ -19,8 +19,8 @@ const Category = () => {
 
   return (
     <section>
+      <CategoryBanner />
       <div className="drawer drawer-mobile">
-        
         <input
           id="skill-nao-drawer"
           type="checkbox"
@@ -47,7 +47,7 @@ const Category = () => {
               />
             </svg>
           </label>
-          <CategoryBanner />
+          {/* <CategoryBanner /> */}
           <Outlet />
         </div>
         <div className="drawer-side shadow-lg">
