@@ -3,7 +3,6 @@ import { NavLink, Outlet, useLocation } from "react-router-dom";
 
 const Category = () => {
   const location = useLocation();
-  console.log(location);
 
   /* new routes added here, just */
   const routes = [
