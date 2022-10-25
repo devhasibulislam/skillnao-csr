@@ -1,7 +1,9 @@
 import React from "react";
-import { NavLink, Outlet } from "react-router-dom";
+import { NavLink, Outlet, useLocation } from "react-router-dom";
 
 const Dashboard = () => {
+  const location = useLocation();
+
   /* new routes added here, just */
   const routes = [
     {
@@ -60,6 +62,11 @@ const Dashboard = () => {
                     isActive ? "font-bold underline" : undefined
                   }
                 >
+                  <input
+                    type="checkbox"
+                    className="checkbox checkbox-accent"
+                    checked={location.pathname === route.anchor}
+                  />{" "}
                   {route.title}
                 </NavLink>
               </li>
