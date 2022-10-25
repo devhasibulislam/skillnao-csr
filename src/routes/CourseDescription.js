@@ -29,8 +29,16 @@ const CourseDescription = () => {
     <div className="container mx-auto py-12 grid grid-cols-1 md:grid-cols-2 gap-12">
       <div className="m-5">
         <h1 className="text-2xl font-bold">{course?.title}</h1>
-        <p className="text-[#4A4A4A] py-4">{course?.about}</p>
-        <img className="rounded-lg" src={course?.thumbnail} alt="" />
+        <p className="text-[#4A4A4A] my-4">{course?.about}</p>
+        <img
+          src={
+            course.thumbnail.includes("http")
+              ? course.thumbnail
+              : `http://localhost:8080/${course?.thumbnail}`
+          }
+          alt={course.title}
+          className="my-4"
+        />
 
         <div>
           <div className="flex rounded-lg mt-16 mb-8">
@@ -44,12 +52,6 @@ const CourseDescription = () => {
             >
               কোর্স ওভারভিউ
             </button>
-            {/* <button
-              className={toggleState === 2 ? "tabs active-tabs" : "tabs"}
-              onClick={() => toggleTab(2)}
-            >
-              কোর্স কারিকুলাম
-            </button> */}
             <button
               className={
                 toggleState === 3
@@ -70,30 +72,33 @@ const CourseDescription = () => {
             >
               <div
                 tabindex="0"
-                class="collapse collapse-arrow border border-base-300 bg-base-100 rounded-box my-2"
+                class="collapse collapse-arrow border border-base-300 bg-base-100 rounded-box mb-4"
               >
                 <div class="collapse-title text-xl font-bold">
                   কেন এ কোর্সটি করবেন?
                 </div>
                 <hr />
                 <div class="collapse-content">
-                  <p className="text-[#4A4A4A]">{course?.description?.reason}</p>
+                  <p className="text-[#4A4A4A]">
+                    {course?.description?.reason}
+                  </p>
                 </div>
               </div>
               <div
                 tabindex="0"
-                class="collapse collapse-arrow border border-base-300 bg-base-100 rounded-box my-2"
+                class="collapse collapse-arrow border border-base-300 bg-base-100 rounded-box mt-4"
               >
                 <div class="collapse-title text-xl font-bold">
                   কোর্সের মূল উদ্দেশ্য
                 </div>
                 <hr />
                 <div class="collapse-content">
-                  <p className="text-[#4A4A4A]">{course?.description?.purpose}</p>
+                  <p className="text-[#4A4A4A]">
+                    {course?.description?.purpose}
+                  </p>
                 </div>
               </div>
             </div>
-
             <div
               className={
                 toggleState === 2 ? "content  active-content" : "content"
@@ -112,27 +117,22 @@ const CourseDescription = () => {
                 toggleState === 3 ? "content  active-content" : "content"
               }
             >
-              <h2>Content 3</h2>
-              <hr />
+              <h2 className="text-3xl font-semibold">About</h2>
+              <hr className="my-2" />
               <p>
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eos
-                sed nostrum rerum laudantium totam unde adipisci incidunt modi
-                alias! Accusamus in quia odit aspernatur provident et ad vel
-                distinctio recusandae totam quidem repudiandae omnis veritatis
-                nostrum laboriosam architecto optio rem, dignissimos voluptatum
-                beatae aperiam voluptatem atque. Beatae rerum dolores sunt.
+                {course?.about}
               </p>
             </div>
           </div>
         </div>
       </div>
 
-      <div className="bg-[#F9F9F9] p-5 rounded-lg m-5">
+      <div className="bg-[#F9F9F9] p-5 rounded-lg m-5 h-fit">
         <h2 className="text-xl font-bold">ক্যারিয়ার প্লেসমেন্ট করুন !</h2>
         <p className="text-[#8C8C8C] py-4">
           যে কোন ব্যাচে সুবিধামতো যে কোন সময় বেছে নিয়ে ভর্তি হতে পারেন এখনই।
         </p>
-        <div className="bg-primary rounded-lg text-white p-5">
+        <div className="bg-[#1A6241] rounded-lg text-white p-5">
           <div className="flex flex-col gap-y-3">
             <div className="flex">
               <img className="mr-4" src={video} alt="" />
@@ -159,7 +159,7 @@ const CourseDescription = () => {
         <div className="flex flex-col gap-y-4 my-5">
           <div className="text-center">
             <label
-            onClick={() => setOpenModal(true)}
+              onClick={() => setOpenModal(true)}
               for="order"
               class="btn modal-button w-full bg-[#FFB357] text-black hover:text-white border-0"
             >
