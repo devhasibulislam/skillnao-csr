@@ -1,7 +1,12 @@
-import React from "react";
+import React, { useState } from "react";
 import toast from "react-hot-toast";
+import addCourseId from "../utils/useCourseIds";
+import ConfirmOrder from "./ConfirmOrder";
+import Modal from "./Modal";
 
 const TrnxID = ({ user, courseId }) => {
+  const [openModal, setOpenModal] = useState(false);
+
   async function handleTrnxID(event) {
     event.preventDefault();
 
@@ -30,6 +35,7 @@ const TrnxID = ({ user, courseId }) => {
       console.log(response);
       if (response.acknowledgement) {
         toast.success("TrnxID accepted and store on DB.");
+        addCourseId(courseId);
         event.target.reset();
       }
     };
@@ -108,10 +114,20 @@ const TrnxID = ({ user, courseId }) => {
           <input
             type="submit"
             className="btn btn-wide bg-[#006243] hover:bg-white hover:text-black border-0"
-            value="Submit"
+            onClick={() => setOpenModal(true)}
+            value="কনফার্ম কর"
           />
         </div>
       </form>
+
+      {/* ask to open confirm modal */}
+      {openModal && (
+        <Modal
+          openModal={openModal}
+          setOpenModal={setOpenModal}
+          content={<ConfirmOrder />}
+        />
+      )}
     </section>
   );
 };
