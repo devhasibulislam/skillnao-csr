@@ -1,5 +1,6 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import useGetTransactionUser from "../utils/useGetTransactionUser";
 import useGetUser from "../utils/useGetUser";
 import Modal from "./Modal";
 import SignIn from "./SignIn";
@@ -7,12 +8,25 @@ import TrnxID from "./TrnxID";
 
 const Card = ({ course }) => {
   const [openModal, setOpenModal] = useState(false);
+  const [disable, setDisable] = useState(false);
   const { user, isLoading } = useGetUser();
   const navigate = useNavigate();
+  const { user: transactionUser, isLoading: isLoadingTransaction } =
+    useGetTransactionUser(user._id);
 
-  if (isLoading) {
+  useEffect(() => {
+    transactionUser?.transactionInfo.map((crs) =>
+      crs.courseID.title.toLowerCase().includes(course.title.toLowerCase())
+        ? setDisable(true)
+        : setDisable(false)
+    );
+  }, [transactionUser?.transactionInfo, course.title]);
+
+  if (isLoading || isLoadingTransaction) {
     return <p>Loading...</p>;
   }
+
+  console.log(transactionUser);
 
   return (
     <div className="card bg-base-100 shadow-xl relative">
@@ -43,10 +57,24 @@ const Card = ({ course }) => {
           </div>
           <button
             className="btn-sm bg-[#1A6241] rounded text-white hover:text-black hover:bg-white"
+            disabled={disable}
             onClick={() => setOpenModal(true)}
           >
             অর্ডার কর
           </button>
+
+          {/* {transactionUser?.transactionInfo.map(
+            (crs) =>
+              crs.courseID.title !== course.title && (
+                <button
+                  className="btn-sm bg-[#1A6241] rounded text-white hover:text-black hover:bg-white"
+                  // disabled={disable}
+                  onClick={() => setOpenModal(true)}
+                >
+                  অর্ডার কর
+                </button>
+              )
+          )} */}
         </div>
       </div>
 
