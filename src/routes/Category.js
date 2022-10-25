@@ -20,6 +20,7 @@ const Category = () => {
   return (
     <section>
       <div className="drawer drawer-mobile">
+        
         <input
           id="skill-nao-drawer"
           type="checkbox"
