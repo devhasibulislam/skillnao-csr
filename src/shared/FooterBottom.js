@@ -1,21 +1,20 @@
 import React from "react";
-import { Link } from "react-router-dom";
+
 
 const FooterBottom = () => {
+  const today = new Date();
+  const year = today.getFullYear();
   return (
-    <section>
-      <footer className="footer footer-center p-4 text-base-content">
-        <div className="flex justify-between w-full">
-          <p>
-            <Link to={"/privacy-policy"}>Privacy Policy</Link> | <Link to={"/terms-of-services"}>Terms of Services</Link>
-          </p>
-          <p>
-            Copyright © 2022 - All right reserved by{" "}
-            <span className="text-[#006243]">SkillNao</span>
-          </p>
-        </div>
-      </footer>
-    </section>
+    <div className="container mx-auto flex flex-col lg:flex-row justify-between py-5">
+        <p>
+          Privacy Policy <span className="mx-4">|</span> Terms of Service
+        </p>
+        <p>
+          SkillNao@{year} All Right Reserved by{" "}
+          <span className="text-[#4FBB8A]">Jahidul</span> & Developed by{" "}
+          <span className="text-[#4FBB8A]">Nipa</span>
+        </p>
+      </div>
   );
 };
 
