@@ -20,7 +20,7 @@ function useGetCoursesWithQuery(query) {
     courses: data?.data,
     isLoading: !error && !data?.data,
     isError: error,
-  };
+  }; 
 }
 
 export default useGetCoursesWithQuery;
