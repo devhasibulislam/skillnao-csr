@@ -6,9 +6,6 @@ const TrnxID = ({ user, courseId }) => {
     event.preventDefault();
 
     const trnxInfo = {
-      name: event.target.name.value,
-      email: event.target.email.value,
-      whatsApp: event.target.whatsApp.value,
       transactionInfo: [
         {
           transactionID: event.target.trnx.value,
@@ -17,17 +14,18 @@ const TrnxID = ({ user, courseId }) => {
       ],
     };
 
-    console.log(trnxInfo);
-
     const updateUserWithTrnxID = async () => {
-      const request = await fetch(`http://localhost:8080/user/${user._id}`, {
-        method: "PATCH",
-        headers: {
-          "content-type": "application/json",
-          authorization: `Bearer ${localStorage.getItem("skillNaoToken")}`,
-        },
-        body: JSON.stringify(trnxInfo),
-      });
+      const request = await fetch(
+        `http://localhost:8080/user/transaction/${user._id}`,
+        {
+          method: "PATCH",
+          headers: {
+            "content-type": "application/json",
+            authorization: `Bearer ${localStorage.getItem("skillNaoToken")}`,
+          },
+          body: JSON.stringify(trnxInfo),
+        }
+      );
       const response = await request.json();
       console.log(response);
       if (response.acknowledgement) {
