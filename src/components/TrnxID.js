@@ -32,7 +32,6 @@ const TrnxID = ({ user, courseId }) => {
         }
       );
       const response = await request.json();
-      console.log(response);
       if (response.acknowledgement) {
         toast.success("TrnxID accepted and store on DB.");
         addCourseId(courseId);
