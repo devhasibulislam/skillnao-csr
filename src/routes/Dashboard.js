@@ -28,6 +28,14 @@ const Dashboard = () => {
 
   return (
     <section>
+      <div className="text-center bg-[#1A6241] py-20 mb-4 rounded">
+        <div className="text-4xl text-white leading-relaxed font-bold">
+          <h1>
+            Welcome to Dashboard,{" "}
+            <span className="text-[#ffb96d]">{user.name}</span>
+          </h1>
+        </div>
+      </div>
       <div className="container mx-auto">
         <div className="drawer drawer-mobile">
           <input
@@ -56,14 +64,6 @@ const Dashboard = () => {
                 />
               </svg>
             </label>
-            <div className="text-center bg-[#1A6241] py-20 mb-4 rounded">
-              <div className="text-4xl text-white leading-relaxed font-bold">
-                <h1>
-                  Welcome to Dashboard,{" "}
-                  <span className="text-[#ffb96d]">{user.name}</span>
-                </h1>
-              </div>
-            </div>
             <Outlet />
           </div>
           <div className="drawer-side shadow-lg">
