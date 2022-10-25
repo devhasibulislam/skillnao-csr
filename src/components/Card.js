@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import useGetTransactionUser from "../utils/useGetTransactionUser";
 import useGetUser from "../utils/useGetUser";
@@ -14,13 +14,13 @@ const Card = ({ course }) => {
     useGetTransactionUser(user?._id);
   const navigate = useNavigate();
 
-  useEffect(() => {
-    transactionUser?.transactionInfo.map((crs) =>
-      crs.courseID.title.toLowerCase().includes(course.title.toLowerCase())
-        ? setDisable(true)
-        : setDisable(false)
-    );
-  }, [transactionUser?.transactionInfo, course.title]);
+  // useEffect(() => {
+  //   transactionUser?.transactionInfo.map((crs) =>
+  //     crs.courseID.title.toLowerCase().includes(course.title.toLowerCase())
+  //       ? setDisable(true)
+  //       : setDisable(false)
+  //   );
+  // }, [transactionUser?.transactionInfo, course.title]);
 
   if (isLoading || isLoadingTransaction) {
     return <p>Loading...</p>;
@@ -57,7 +57,9 @@ const Card = ({ course }) => {
           </div>
           <button
             className="btn-sm bg-[#1A6241] rounded text-white hover:text-black hover:bg-white"
-            disabled={disable}
+            disabled={localStorage
+              .getItem("skillNaoCourseIds")
+              ?.includes(course._id)}
             onClick={() => setOpenModal(true)}
           >
             অর্ডার কর
