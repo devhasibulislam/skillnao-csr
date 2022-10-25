@@ -67,7 +67,7 @@ const Review = () => {
               <img className="mx-auto" src={review.picture} alt="" />
             </div>
             <div>
-              <div className="flex mb-[-24px]">
+              <div className="flex -mb-4 ml-8">
                 {" "}
                 <img className="mr-2" src={quotation} alt="" />
                 <img src={quotation} alt="" />

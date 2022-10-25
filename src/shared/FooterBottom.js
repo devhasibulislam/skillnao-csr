@@ -1,11 +1,11 @@
 import React from "react";
 
-
 const FooterBottom = () => {
   const today = new Date();
   const year = today.getFullYear();
   return (
-    <div className="container mx-auto flex flex-col lg:flex-row justify-between py-5">
+    <section className="px-4">
+      <div className="container mx-auto flex flex-col lg:flex-row justify-between py-5">
         <p>
           Privacy Policy <span className="mx-4">|</span> Terms of Service
         </p>
@@ -15,6 +15,7 @@ const FooterBottom = () => {
           <span className="text-[#4FBB8A]">Nipa</span>
         </p>
       </div>
+    </section>
   );
 };
 
