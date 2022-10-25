@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import useGetTransactionUser from "../utils/useGetTransactionUser";
 import useGetUser from "../utils/useGetUser";
 import Modal from "./Modal";
 import SignIn from "./SignIn";
@@ -8,25 +7,12 @@ import TrnxID from "./TrnxID";
 
 const Card = ({ course }) => {
   const [openModal, setOpenModal] = useState(false);
-  const [disable, setDisable] = useState(false);
   const { user, isLoading } = useGetUser();
-  const { user: transactionUser, isLoading: isLoadingTransaction } =
-    useGetTransactionUser(user?._id);
   const navigate = useNavigate();
 
-  // useEffect(() => {
-  //   transactionUser?.transactionInfo.map((crs) =>
-  //     crs.courseID.title.toLowerCase().includes(course.title.toLowerCase())
-  //       ? setDisable(true)
-  //       : setDisable(false)
-  //   );
-  // }, [transactionUser?.transactionInfo, course.title]);
-
-  if (isLoading || isLoadingTransaction) {
+  if (isLoading) {
     return <p>Loading...</p>;
   }
-
-  console.log(transactionUser);
 
   return (
     <div className="card bg-base-100 shadow-xl relative">
