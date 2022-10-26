@@ -64,7 +64,7 @@ const ManageCourses = () => {
                         : `https://skillnao-ssr.onrender.com/${course.thumbnail}`
                     }
                     alt={course.title}
-                    className="h-[380px] w-[525px] object-cover"
+                    className="h-[250px] w-full object-cover"
                   />
                 </figure>
                 <div className="card-body">
