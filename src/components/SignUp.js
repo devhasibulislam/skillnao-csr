@@ -120,7 +120,7 @@ const SignUp = () => {
             Already have an account?{" "}
             <label
               htmlFor="skillnao-modal"
-              className="text-[#ffb96d] hover:underline"
+              className="text-secondary font-bold hover:underline"
               onClick={() => setOpenModal("signup")}
             >
               Login

@@ -37,7 +37,7 @@ const Card = ({ course }) => {
         <h2 className="card-title justify-between">
           {course.title.toUpperCase()}
         </h2>
-        <p>{course.about.slice(0, 45)}...</p>
+        {/* <p>{course.about.slice(0, 45)}...</p> */}
         <div className="card-actions justify-between items-center">
           <div
             className="badge bg-[#ffb96d] text-black whitespace-nowrap tooltip"

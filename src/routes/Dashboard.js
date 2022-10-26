@@ -77,12 +77,12 @@ const Dashboard = () => {
                   <NavLink
                     to={route.anchor}
                     className={({ isActive }) =>
-                      isActive ? "font-bold underline" : undefined
+                      isActive ? "font-bold text-primary" : undefined
                     }
                   >
                     <input
                       type="checkbox"
-                      className="checkbox checkbox-accent"
+                      className="checkbox checkbox-primary"
                       checked={location.pathname === route.anchor}
                     />{" "}
                     {route.title}

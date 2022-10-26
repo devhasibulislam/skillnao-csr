@@ -8,11 +8,11 @@ const Category = () => {
   /* new routes added here, just */
   const routes = [
     {
-      title: "Academic",
+      title: "একাডেমিক",
       anchor: "/category/academic",
     },
     {
-      title: "Professional",
+      title: "প্রফেশনাল",
       anchor: "/category/professional",
     },
   ];
@@ -61,12 +61,12 @@ const Category = () => {
                   <NavLink
                     to={route.anchor}
                     className={({ isActive }) =>
-                      isActive ? "font-bold underline" : undefined
+                      isActive ? "font-bold text-primary" : undefined
                     }
                   >
                     <input
                       type="checkbox"
-                      className="checkbox checkbox-accent"
+                      className="checkbox checkbox-primary"
                       checked={location.pathname.includes(
                         route.title.toLowerCase()
                       )}

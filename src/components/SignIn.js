@@ -88,7 +88,7 @@ const SignIn = () => {
               Did'nt have an account?{" "}
               <label
                 htmlFor="skillnao-modal"
-                className="text-[#ffb96d] hover:underline"
+                className="text-secondary font-bold hover:underline"
                 onClick={() => setOpenSignUpModal(true)}
               >
                 Create account
