@@ -52,7 +52,7 @@ const TrnxID = ({ user, courseId }) => {
       <form onSubmit={handleTrnxID}>
         {/* email input */}
         <div className="flex lg:flex-row md:flex-row flex-col justify-between items-center">
-          <label htmlFor="email">
+          <label htmlFor="email" className="whitespace-nowrap">
             ইমেইল অ্যাড্রেস <span className="text-red-500">*</span>
           </label>
           <input
@@ -68,7 +68,7 @@ const TrnxID = ({ user, courseId }) => {
 
         {/* user name input */}
         <div className="flex lg:flex-row md:flex-row flex-col justify-between items-center">
-          <label htmlFor="name">
+          <label htmlFor="name" className="whitespace-nowrap">
             ইউজার নেম <span className="text-red-500">*</span>
           </label>
           <input
@@ -84,7 +84,7 @@ const TrnxID = ({ user, courseId }) => {
 
         {/* whatsApp number input */}
         <div className="flex lg:flex-row md:flex-row flex-col justify-between items-center">
-          <label htmlFor="name">
+          <label htmlFor="name" className="whitespace-nowrap">
             হয়াটস-এপ নাম্বার <span className="text-red-500">*</span>
           </label>
           <input
