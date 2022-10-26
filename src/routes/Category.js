@@ -67,9 +67,7 @@ const Category = () => {
                     <input
                       type="checkbox"
                       className="checkbox checkbox-primary"
-                      checked={location.pathname.includes(
-                        route.title.toLowerCase()
-                      )}
+                      checked={location.pathname === route.anchor}
                     />{" "}
                     {route.title}
                   </NavLink>
