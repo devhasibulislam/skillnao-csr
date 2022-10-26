@@ -3,7 +3,7 @@ import toast from "react-hot-toast";
 import addCourseId from "../utils/useCourseIds";
 import ConfirmOrder from "./ConfirmOrder";
 import Modal from "./Modal";
-import bkash from "../../assets/order/bkashlogo.svg";
+import bkash from "../assets/order/bkashlogo.svg";
 import Highlight from "./home/Highlight";
 
 const TrnxID = ({ user, courseId }) => {
@@ -46,9 +46,9 @@ const TrnxID = ({ user, courseId }) => {
   return (
     <section>
       <img className="w-40" src={bkash} alt="" />
-                    <h1 className="font-bold">
-                      <Highlight>বিকাশ নাম্বার :</Highlight> 0172.......
-                    </h1>
+      <h1 className="font-bold mb-4">
+        <Highlight>বিকাশ নাম্বার :</Highlight> 0172.......
+      </h1>
       <form onSubmit={handleTrnxID}>
         {/* email input */}
         <div className="flex lg:flex-row md:flex-row flex-col justify-between items-center">
