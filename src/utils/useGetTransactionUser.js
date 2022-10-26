@@ -10,7 +10,7 @@ function useGetTransactionUser(id) {
   const { data, error } = useSWR(
     [
       `https://skillnao-ssr.onrender.com/user/transaction/${id}`,
-      localStorage.getItem("skillNaoToken"),
+      localStorage?.getItem("skillNaoToken"),
     ],
     fetcher,
     { refreshInterval: 1000 }

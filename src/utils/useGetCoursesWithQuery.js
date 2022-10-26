@@ -10,7 +10,7 @@ function useGetCoursesWithQuery(query) {
   const { data, error } = useSWR(
     [
       `https://skillnao-ssr.onrender.com/course?${query}`,
-      localStorage.getItem("skillNaoToken"),
+      localStorage?.getItem("skillNaoToken"),
     ],
     fetcher,
     { refreshInterval: 1000 }
