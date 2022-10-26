@@ -149,6 +149,7 @@ const AddCourse = () => {
             type="file"
             name="thumbnail"
             className="input input-bordered input-success w-full max-w-xs pt-2"
+            placeholder="png/jpg/jpeg/webp"
             onChange={handleCourseThumbnail}
           />
         </div>
