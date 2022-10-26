@@ -3,7 +3,7 @@ import React from "react";
 const CategoryBanner = () => {
   return (
     <section>
-      <div className="categoryBg text-center bg-[#1A6241] p-32 mb-4 rounded">
+      <div className="categoryBg text-center bg-[#1A6241] py-32 px-8 mb-4 rounded">
         <div className="text-4xl text-white leading-relaxed font-bold">
           <h1>
             সঠিক ডিসিশন নাও, উন্নত <br /> ভবিষ্যত গড়{" "}
