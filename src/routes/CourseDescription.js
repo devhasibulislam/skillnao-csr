@@ -57,7 +57,7 @@ const CourseDescription = () => {
               : `https://skillnao-ssr.onrender.com/${course?.thumbnail}`
           }
           alt={course.title}
-          className="my-8 rounded-2xl"
+          className="my-8 rounded-2xl w-full"
         />
 
         <div>
