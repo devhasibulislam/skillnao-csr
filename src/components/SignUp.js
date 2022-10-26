@@ -43,7 +43,7 @@ const SignUp = () => {
         </h1>
         <form onSubmit={handleSignIn}>
           {/* email input */}
-          <div className="flex justify-between items-center">
+          <div className="flex lg:flex-row md:flex-row flex-col justify-between items-center">
             <label htmlFor="email">
               ইমেইল অ্যাড্রেস <span className="text-red-500">*</span>
             </label>
@@ -59,7 +59,7 @@ const SignUp = () => {
           <br />
 
           {/* user name input */}
-          <div className="flex justify-between items-center">
+          <div className="flex lg:flex-row md:flex-row flex-col justify-between items-center">
             <label htmlFor="name">
               ইউজার নেম <span className="text-red-500">*</span>
             </label>
@@ -75,7 +75,7 @@ const SignUp = () => {
           <br />
 
           {/* whatsApp number input */}
-          <div className="flex justify-between items-center">
+          <div className="flex lg:flex-row md:flex-row flex-col justify-between items-center">
             <label htmlFor="name">
               হয়াটস-এপ নাম্বার <span className="text-red-500">*</span>
             </label>
@@ -91,7 +91,7 @@ const SignUp = () => {
           <br />
 
           {/* password input */}
-          <div className="flex justify-between items-center">
+          <div className="flex lg:flex-row md:flex-row flex-col justify-between items-center">
             <label htmlFor="password">
               পাসওয়ার্ড <span className="text-red-500">*</span>
             </label>

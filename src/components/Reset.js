@@ -9,7 +9,7 @@ const Reset = () => {
         </h1>
         <form action="">
           {/* email input */}
-          <div className="flex justify-between items-center">
+          <div className="flex lg:flex-row md:flex-row flex-col justify-between items-center">
             <label htmlFor="email">
               Email Address <span className="text-red-500">*</span>
             </label>
@@ -25,7 +25,7 @@ const Reset = () => {
           <br />
 
           {/* password input */}
-          <div className="flex justify-between items-center">
+          <div className="flex lg:flex-row md:flex-row flex-col justify-between items-center">
             <label htmlFor="password">
               New Password <span className="text-red-500">*</span>
             </label>

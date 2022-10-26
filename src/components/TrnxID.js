@@ -48,7 +48,7 @@ const TrnxID = ({ user, courseId }) => {
       </h1>
       <form onSubmit={handleTrnxID}>
         {/* email input */}
-        <div className="flex justify-between items-center">
+        <div className="flex lg:flex-row md:flex-row flex-col justify-between items-center">
           <label htmlFor="email">
             ইমেইল অ্যাড্রেস <span className="text-red-500">*</span>
           </label>
@@ -64,7 +64,7 @@ const TrnxID = ({ user, courseId }) => {
         <br />
 
         {/* user name input */}
-        <div className="flex justify-between items-center">
+        <div className="flex lg:flex-row md:flex-row flex-col justify-between items-center">
           <label htmlFor="name">
             ইউজার নেম <span className="text-red-500">*</span>
           </label>
@@ -80,7 +80,7 @@ const TrnxID = ({ user, courseId }) => {
         <br />
 
         {/* whatsApp number input */}
-        <div className="flex justify-between items-center">
+        <div className="flex lg:flex-row md:flex-row flex-col justify-between items-center">
           <label htmlFor="name">
             হয়াটস-এপ নাম্বার <span className="text-red-500">*</span>
           </label>
@@ -96,7 +96,7 @@ const TrnxID = ({ user, courseId }) => {
         <br />
 
         {/* transaction ID */}
-        <div className="flex justify-between items-center">
+        <div className="flex lg:flex-row md:flex-row flex-col justify-between items-center">
           <label htmlFor="password">
             TrnxID <span className="text-red-500">*</span>
           </label>
