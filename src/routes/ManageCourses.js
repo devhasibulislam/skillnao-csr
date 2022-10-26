@@ -22,6 +22,13 @@ const ManageCourses = () => {
     }
   }
 
+
+  /**
+   * display image from node server to react
+   * ----------------------------------------
+   * https://stackoverflow.com/questions/21235696/display-images-in-html-nodejs
+   */
+
   return (
     <section>
       <div>
@@ -61,7 +68,7 @@ const ManageCourses = () => {
                     src={
                       course.thumbnail.includes("http")
                         ? course.thumbnail
-                        : `https://skillnao-ssr.onrender.com/${course.thumbnail}`
+                        : `https://skillnao-ssr.onrender.com/uploads/${course.thumbnail}`
                     }
                     alt={course.title}
                     className="h-[250px] w-full object-cover"
