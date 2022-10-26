@@ -10,7 +10,7 @@ const AddCourse = () => {
     formData.append("thumbnail", event.target.files[0]);
 
     const { data } = await axios.post(
-      "http://localhost:8080/course/thumbnail",
+      "https://skillnao-ssr.onrender.com/course/thumbnail",
       formData
     );
     if (data.acknowledgement) {
@@ -35,7 +35,7 @@ const AddCourse = () => {
     };
 
     const addNewCourse = async () => {
-      const request = await fetch("http://localhost:8080/course/", {
+      const request = await fetch("https://skillnao-ssr.onrender.com/course/", {
         method: "POST",
         headers: {
           "content-type": "application/json",

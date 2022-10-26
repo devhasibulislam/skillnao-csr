@@ -27,7 +27,7 @@ const Card = ({ course }) => {
           src={
             course.thumbnail.includes("http")
               ? course.thumbnail
-              : `http://localhost:8080/${course.thumbnail}`
+              : `https://skillnao-ssr.onrender.com/${course.thumbnail}`
           }
           alt={course.title}
           className="h-[380px] w-[525px] object-cover"

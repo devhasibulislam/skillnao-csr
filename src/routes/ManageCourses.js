@@ -11,7 +11,7 @@ const ManageCourses = () => {
   }
 
   async function handleCourseRemove(id) {
-    const { data } = await axios.delete(`http://localhost:8080/course/${id}`, {
+    const { data } = await axios.delete(`https://skillnao-ssr.onrender.com/course/${id}`, {
       headers: {
         "content-type": "application/json",
         authorization: `Bearer ${localStorage.getItem("skillNaoToken")}`,
@@ -61,7 +61,7 @@ const ManageCourses = () => {
                     src={
                       course.thumbnail.includes("http")
                         ? course.thumbnail
-                        : `http://localhost:8080/${course.thumbnail}`
+                        : `https://skillnao-ssr.onrender.com/${course.thumbnail}`
                     }
                     alt={course.title}
                     className="h-[380px] w-[525px] object-cover"

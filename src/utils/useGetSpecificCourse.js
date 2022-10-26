@@ -9,7 +9,7 @@ function useGetSpecificCourse(id) {
 
   const { data, error } = useSWR(
     [
-      `http://localhost:8080/course/${id}`,
+      `https://skillnao-ssr.onrender.com/course/${id}`,
       localStorage.getItem("skillNaoToken"),
     ],
     fetcher,
