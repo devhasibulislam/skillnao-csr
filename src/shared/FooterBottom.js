@@ -12,7 +12,7 @@ const FooterBottom = () => {
         <p>
           SkillNao@{year} All Right Reserved by{" "}
           <span className="text-primary">Jahidul</span> & Developed by{" "}
-          <span className="text-primary">Nipa</span>
+          <span className="text-primary">Hasib & Nipa</span>
         </p>
       </div>
     </section>
