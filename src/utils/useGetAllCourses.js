@@ -8,7 +8,7 @@ function useGetAllCourses() {
       .then((res) => res.data);
 
   const { data, error } = useSWR(
-    ["https://skillnao-ssr.herokuapp.com/course", localStorage?.getItem("skillNaoToken")],
+    ["https://skillnao-ssr.onrender.com/course", localStorage?.getItem("skillNaoToken")],
     fetcher,
     { refreshInterval: 1000 }
   );

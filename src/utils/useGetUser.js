@@ -13,7 +13,7 @@ function useGetUser() {
       .then((res) => res.data);
 
   const { data, error } = useSWR(
-    ["https://skillnao-ssr.herokuapp.com/user/me", localStorage?.getItem("skillNaoToken")],
+    ["https://skillnao-ssr.onrender.com/user/me", localStorage?.getItem("skillNaoToken")],
     fetcher
   );
 

@@ -12,7 +12,7 @@ const ManageCourses = () => {
 
   async function handleCourseRemove(id) {
     const { data } = await axios.delete(
-      `https://skillnao-ssr.herokuapp.com/course/${id}`,
+      `https://skillnao-ssr.onrender.com/course/${id}`,
       {
         headers: {
           "content-type": "application/json",
@@ -70,7 +70,7 @@ const ManageCourses = () => {
                     src={
                       course?.thumbnail?.includes("http")
                         ? course?.thumbnail
-                        : `https://skillnao-ssr.herokuapp.com/uploads/${course?.thumbnail}`
+                        : `https://skillnao-ssr.onrender.com/uploads/${course?.thumbnail}`
                     }
                     alt={course.title}
                     className="h-[250px] w-full object-cover"
