@@ -13,7 +13,7 @@ const ManageUsers = () => {
   function handleUserToAdmin(id) {
     // translate an user to admin
     const makeAnUserToAdmin = async () => {
-      const request = await fetch(`https://skillnao-ssr.onrender.com/user/${id}`, {
+      const request = await fetch(`https://skillnao-ssr.herokuapp.com/user/${id}`, {
         method: "PATCH",
         headers: {
           "content-type": "application/json",
@@ -31,7 +31,7 @@ const ManageUsers = () => {
 
   // remove an user
   async function handleRemoveUser(id) {
-    const { data } = await axios.delete(`https://skillnao-ssr.onrender.com/user/${id}`, {
+    const { data } = await axios.delete(`https://skillnao-ssr.herokuapp.com/user/${id}`, {
       headers: {
         "content-type": "application/json",
         authorization: `Bearer ${localStorage.getItem("skillNaoToken")}`,

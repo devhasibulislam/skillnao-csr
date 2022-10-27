@@ -8,7 +8,7 @@ function useGetAllUsers() {
       .then((res) => res.data);
 
   const { data, error } = useSWR(
-    ["https://skillnao-ssr.onrender.com/user/all", localStorage?.getItem("skillNaoToken")],
+    ["https://skillnao-ssr.herokuapp.com/user/all", localStorage?.getItem("skillNaoToken")],
     fetcher,
     { refreshInterval: 1000 }
   );

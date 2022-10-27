@@ -10,7 +10,7 @@ const AddCourse = () => {
     formData.append("thumbnail", event.target.files[0]);
 
     const { data } = await axios.post(
-      "https://skillnao-ssr.onrender.com/course/thumbnail",
+      "https://skillnao-ssr.herokuapp.com/course/thumbnail",
       formData
     );
     if (data.acknowledgement) {
@@ -35,7 +35,7 @@ const AddCourse = () => {
     };
 
     const addNewCourse = async () => {
-      const request = await fetch("https://skillnao-ssr.onrender.com/course/", {
+      const request = await fetch("https://skillnao-ssr.herokuapp.com/course/", {
         method: "POST",
         headers: {
           "content-type": "application/json",
