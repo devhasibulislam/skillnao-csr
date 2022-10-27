@@ -72,7 +72,7 @@ const Dashboard = () => {
               className="drawer-overlay"
             ></label>
             <ul className="menu p-4 overflow-y-auto w-60 bg-base-100 text-base-content">
-              {routes.map((route, index) => (
+              {routes?.map((route, index) => (
                 <li key={index}>
                   <NavLink
                     to={route.anchor}

@@ -76,7 +76,7 @@ const ManageUsers = () => {
                         No TrnxID available
                       </option>
                     ) : (
-                      user.transactionInfo.map((trnx, index) => (
+                      user.transactionInfo?.map((trnx, index) => (
                         <option key={index}>{trnx.transactionID}</option>
                       ))
                     )}

@@ -21,7 +21,7 @@ const Count = () => {
   ];
   return (
     <div className="container mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 my-20 p-8">
-      {allCount.map((count, index) => (
+      {allCount?.map((count, index) => (
         <div
           key={index}
           className="bg-primary rounded-lg text-center py-8 text-white"

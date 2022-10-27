@@ -44,7 +44,7 @@ const ManageCourses = () => {
         {/* display courses */}
         <section className="grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 lg:gap-8 md:gap-6 gap-y-4">
           {courses
-            .map((course, index) => (
+            ?.map((course, index) => (
               <div className="card bg-base-100 shadow-xl relative" key={index}>
                 <button
                   className="btn btn-circle absolute top-2 left-2 shadow-lg"

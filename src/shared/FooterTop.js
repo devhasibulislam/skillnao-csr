@@ -32,7 +32,7 @@ const FooterTop = () => {
             <p className="pb-4">আলোচনার মাধ্যমে সঠিক ডিসিশন টি পছন্দ করুন</p>
 
             <div className="text-2xl flex mb-12 justify-center gap-x-2 lg:justify-start">
-              {socialIcons.map((socialIcon, index) => (
+              {socialIcons?.map((socialIcon, index) => (
                 <a key={index} href="/" target={"_blank"} rel="noreferrer">
                   <img src={socialIcon} alt={`social-icon-${index}`} />
                 </a>
@@ -40,10 +40,10 @@ const FooterTop = () => {
             </div>
           </div>
 
-          {footerAnchors.map((footerAnchor, index) => (
+          {footerAnchors?.map((footerAnchor, index) => (
             <div key={index} className="mb-12">
               <h2 className="text-2xl pb-4">{footerAnchor.title}</h2>
-              {footerAnchor.anchors.map((anchor) => (
+              {footerAnchor.anchors?.map((anchor) => (
                 <div className="flex flex-col gap-y-2">
                   <p>{anchor}</p>
                 </div>

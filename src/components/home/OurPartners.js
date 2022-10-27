@@ -27,7 +27,7 @@ const OurPartners = () => {
            <div className='partner'>
            <div className='container mx-auto py-16 px-8 md:px-24 bg-[#F0FCF7] rounded-lg  grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 shadow'>
                 {
-                    partners.map((partner, index) => 
+                    partners?.map((partner, index) => 
                     <div
                     key={index}
                      className='bg-white shadow rounded-lg flex justify-center items-center'>

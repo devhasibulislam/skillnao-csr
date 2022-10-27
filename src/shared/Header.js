@@ -26,7 +26,7 @@ const Header = () => {
 
   const submenu = (
     <>
-      {dropDownMenu.map((ddm, index) => (
+      {dropDownMenu?.map((ddm, index) => (
         <li key={index}>
           <Link to={ddm.anchor}>{ddm.title}</Link>
         </li>

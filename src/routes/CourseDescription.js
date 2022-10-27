@@ -152,7 +152,7 @@ const CourseDescription = () => {
         </p>
         <div className="bg-[#1A6241] rounded-lg text-white p-5">
           <div className="flex flex-col gap-y-3">
-            {facilities.map((facility, index) => (
+            {facilities?.map((facility, index) => (
               <div key={index} className="flex">
                 <img
                   className="mr-4"
