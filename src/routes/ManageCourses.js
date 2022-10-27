@@ -11,17 +11,19 @@ const ManageCourses = () => {
   }
 
   async function handleCourseRemove(id) {
-    const { data } = await axios.delete(`https://skillnao-ssr.onrender.com/course/${id}`, {
-      headers: {
-        "content-type": "application/json",
-        authorization: `Bearer ${localStorage.getItem("skillNaoToken")}`,
-      },
-    });
+    const { data } = await axios.delete(
+      `https://skillnao-ssr.onrender.com/course/${id}`,
+      {
+        headers: {
+          "content-type": "application/json",
+          authorization: `Bearer ${localStorage.getItem("skillNaoToken")}`,
+        },
+      }
+    );
     if (data.acknowledgement) {
       toast.success("Successfully removed a course.");
     }
   }
-
 
   /**
    * display image from node server to react
@@ -66,9 +68,9 @@ const ManageCourses = () => {
                 <figure>
                   <img
                     src={
-                      course.thumbnail.includes("http")
-                        ? course.thumbnail
-                        : `https://skillnao-ssr.onrender.com/uploads/${course.thumbnail}`
+                      course?.thumbnail?.includes("http")
+                        ? course?.thumbnail
+                        : `https://skillnao-ssr.onrender.com/uploads/${course?.thumbnail}`
                     }
                     alt={course.title}
                     className="h-[250px] w-full object-cover"

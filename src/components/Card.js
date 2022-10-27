@@ -19,15 +19,12 @@ const Card = ({ course }) => {
 
   return (
     <div className="card bg-base-100 shadow-xl relative">
-      <figure
-       onClick={() => handleDetails(course._id)}
-       
-      >
+      <figure onClick={() => handleDetails(course._id)}>
         <img
           src={
-            course.thumbnail.includes("http")
-              ? course.thumbnail
-              : `https://skillnao-ssr.onrender.com/uploads/${course.thumbnail}`
+            course?.thumbnail?.includes("http")
+              ? course?.thumbnail
+              : `https://skillnao-ssr.onrender.com/uploads/${course?.thumbnail}`
           }
           alt={course.title}
           className="h-[250px] w-full object-cover"
