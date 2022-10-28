@@ -1,22 +1,27 @@
-import axios from "axios";
+import Axios from "axios";
 import React, { useState } from "react";
 import toast from "react-hot-toast";
 
 const AddCourse = () => {
   const [thumbnail, setThumbnail] = useState("");
 
-  async function handleCourseThumbnail(event) {
+  function handleCourseThumbnail(event) {
     const formData = new FormData();
-    formData.append("thumbnail", event.target.files[0]);
+    formData.append("file", event.target.files[0]);
+    formData.append("upload_preset", "mtlvthue");
 
-    const { data } = await axios.post(
-      "https://skillnao-ssr.onrender.com/course/thumbnail",
+    Axios.post(
+      "https://api.cloudinary.com/v1_1/dho0rpn5a/image/upload",
       formData
-    );
-    if (data.acknowledgement) {
-      setThumbnail(data.data.filename);
+    ).then((response) => {
+      setThumbnail(response.data.url);
       toast.success("Course thumbnail uploaded.");
-    }
+    });
+
+    // if (data.acknowledgement) {
+    //   setThumbnail(data.data.url);
+    //   toast.success("Course thumbnail uploaded.");
+    // }
   }
 
   async function handleAddCourse(event) {
