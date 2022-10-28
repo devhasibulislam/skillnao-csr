@@ -1,6 +1,8 @@
 /**
  * Send header to SWR
  * https://stackoverflow.com/questions/65862928/how-to-send-headers-using-swr
+ * Pass SWR to useEffect()
+ * https://stackoverflow.com/questions/67909721/how-to-pass-data-into-usestate-using-useeffect-next-js-swr-hook-for-fetching
  */
 
 import axios from "axios";
