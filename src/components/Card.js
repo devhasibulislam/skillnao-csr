@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import MiniLoading from "../shared/MiniLoading";
 import useGetUser from "../utils/useGetUser";
 import Modal from "./Modal";
 import SignIn from "./SignIn";
@@ -14,7 +15,7 @@ const Card = ({ course }) => {
   };
 
   if (isLoading) {
-    return <p>Loading...</p>;
+    return <MiniLoading/>;
   }
 
   return (

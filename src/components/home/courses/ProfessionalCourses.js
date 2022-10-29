@@ -1,4 +1,5 @@
 import React from "react";
+import MiniLoading from "../../../shared/MiniLoading";
 import useGetCoursesWithQuery from "../../../utils/useGetCoursesWithQuery";
 import Highlight from "../Highlight";
 import CourseSlider from "./CourseSlider";
@@ -9,7 +10,7 @@ const ProfessionalCourses = () => {
   );
 
   if (isLoading) {
-    return <p>Loading...</p>;
+    return <MiniLoading/>;
   }
 
   return (

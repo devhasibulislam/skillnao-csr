@@ -1,13 +1,14 @@
 import axios from "axios";
 import React from "react";
 import toast from "react-hot-toast";
+import MiniLoading from "../shared/MiniLoading";
 import useGetAllCourses from "../utils/useGetAllCourses";
 
 const ManageCourses = () => {
   const { courses, isLoading } = useGetAllCourses();
 
   if (isLoading) {
-    return <p>Loading...</p>;
+    return <MiniLoading/>;
   }
 
   async function handleCourseRemove(id) {

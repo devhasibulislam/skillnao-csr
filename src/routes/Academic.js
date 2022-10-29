@@ -1,12 +1,13 @@
 import React from "react";
 import useGetCoursesWithQuery from "../utils/useGetCoursesWithQuery";
 import Card from "../components/Card";
+import MiniLoading from "../shared/MiniLoading";
 
 const Academic = () => {
   const { courses, isLoading } = useGetCoursesWithQuery("category=academic");
 
   if (isLoading) {
-    return <p>Loading...</p>;
+    return <MiniLoading/>;
   }
 
   return (

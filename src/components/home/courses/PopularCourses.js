@@ -1,4 +1,5 @@
 import React from "react";
+import MiniLoading from "../../../shared/MiniLoading";
 import useGetAllCourses from "../../../utils/useGetAllCourses";
 import Highlight from "../Highlight";
 import CourseSlider from "./CourseSlider";
@@ -7,7 +8,7 @@ const PopularCourses = () => {
   const { courses, isLoading } = useGetAllCourses();
 
   if (isLoading) {
-    return <p>Loading...</p>;
+    return <MiniLoading/>;
   }
 
   return (
