@@ -15,10 +15,15 @@ import NotFound from "./routes/NotFound";
 import AuthGuard from "./components/AuthGuard";
 import AdminGuard from "./components/AdminGuard";
 import Home from "./routes/Home";
+import useGetUser from "./utils/useGetUser";
+import Loading from "./shared/Loading";
 
 function App() {
+  const { isLoading} = useGetUser();
   return (
-    <div className="App">
+  <>
+  { isLoading ? <Loading/> :
+      <div className="App">
       {/* header section */}
       <Header />
 
@@ -59,6 +64,7 @@ function App() {
       {/* toast section */}
       <Toaster />
     </div>
+  }</>
   );
 }
 

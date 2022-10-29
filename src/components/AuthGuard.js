@@ -6,7 +6,7 @@ const AuthGuard = ({ children }) => {
   const { user, isLoading } = useGetUser();
 
   if (isLoading) {
-    return <p>Loading...</p>;
+    return <p>loading...</p>;
   }
 
   return (

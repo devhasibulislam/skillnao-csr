@@ -5,12 +5,13 @@ import headerLogo from "../assets/header_logo.svg";
 import Modal from "../components/Modal";
 import SignIn from "../components/SignIn";
 
+
 const Header = () => {
   const [openModal, setOpenModal] = useState(false);
   const { user, isLoading } = useGetUser();
 
   if (isLoading) {
-    return <p>Loading...</p>;
+    return <p>loading...</p>;
   }
 
   const dropDownMenu = [

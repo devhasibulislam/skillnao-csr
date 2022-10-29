@@ -94,6 +94,14 @@ const SignIn = () => {
                 Create account
               </label>
             </p>
+            {/* <p className="hover:underline">
+              <label
+                htmlFor="skillnao-modal"
+                onClick={() => setOpenForgotModal(true)}
+              >
+                Forgot password?
+              </label>
+            </p> */}
           </div>
         </div>
       </div>
