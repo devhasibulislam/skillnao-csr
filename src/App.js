@@ -17,13 +17,12 @@ import AdminGuard from "./components/AdminGuard";
 import Home from "./routes/Home";
 import useGetUser from "./utils/useGetUser";
 import Loading from "./shared/Loading";
-import MiniLoading from "./shared/MiniLoading";
 
 function App() {
   const { isLoading} = useGetUser();
   return (
   <>
-  { isLoading ? <MiniLoading/> :
+  { isLoading ? <Loading/> :
       <div className="App">
       {/* header section */}
       <Header />
