@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import MiniLoading from "../shared/MiniLoading";
 import useGetUser from "../utils/useGetUser";
 import Modal from "./Modal";
 import SignIn from "./SignIn";
@@ -14,30 +15,27 @@ const Card = ({ course }) => {
   };
 
   if (isLoading) {
-    return <p>Loading...</p>;
+    return <MiniLoading/>;
   }
 
   return (
     <div className="card bg-base-100 shadow-xl relative">
-      <figure
-       onClick={() => handleDetails(course._id)}
-       
-      >
+      <figure onClick={() => handleDetails(course._id)}>
         <img
           src={
-            course.thumbnail.includes("http")
-              ? course.thumbnail
-              : `http://localhost:8080/${course.thumbnail}`
+            course?.thumbnail?.includes("http")
+              ? course?.thumbnail
+              : `http://localhost:8080/uploads/${course?.thumbnail}`
           }
           alt={course.title}
-          className="h-[380px] w-[525px] object-cover"
+          className="h-[250px] w-full object-cover"
         />
       </figure>
       <div className="card-body">
         <h2 className="card-title justify-between">
           {course.title.toUpperCase()}
         </h2>
-        <p>{course.about.slice(0, 45)}...</p>
+        {/* <p>{course.about.slice(0, 45)}...</p> */}
         <div className="card-actions justify-between items-center">
           <div
             className="badge bg-[#ffb96d] text-black whitespace-nowrap tooltip"

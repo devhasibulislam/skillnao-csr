@@ -1,5 +1,6 @@
 import React from "react";
 import { NavLink, Outlet, useLocation } from "react-router-dom";
+import MiniLoading from "../shared/MiniLoading";
 import useGetUser from "../utils/useGetUser";
 
 const Dashboard = () => {
@@ -7,7 +8,7 @@ const Dashboard = () => {
   const { user, isLoading } = useGetUser();
 
   if (isLoading) {
-    return <p>Loading...</p>;
+    return <MiniLoading/>;
   }
 
   /* new routes added here, just */
@@ -72,17 +73,17 @@ const Dashboard = () => {
               className="drawer-overlay"
             ></label>
             <ul className="menu p-4 overflow-y-auto w-60 bg-base-100 text-base-content">
-              {routes.map((route, index) => (
+              {routes?.map((route, index) => (
                 <li key={index}>
                   <NavLink
                     to={route.anchor}
                     className={({ isActive }) =>
-                      isActive ? "font-bold underline" : undefined
+                      isActive ? "font-bold text-primary" : undefined
                     }
                   >
                     <input
                       type="checkbox"
-                      className="checkbox checkbox-accent"
+                      className="checkbox checkbox-primary"
                       checked={location.pathname === route.anchor}
                     />{" "}
                     {route.title}

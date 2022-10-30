@@ -1,13 +1,13 @@
 import axios from "axios";
 import React, { useState } from "react";
 import Modal from "./Modal";
-import Reset from "./Reset";
+// import Reset from "./Reset";
 import SignUp from "./SignUp";
 import toast from "react-hot-toast";
 
 const SignIn = () => {
   const [openSignUpModal, setOpenSignUpModal] = useState(false);
-  const [openForgotModal, setOpenForgotModal] = useState(false);
+  // const [openForgotModal, setOpenForgotModal] = useState(false);
 
   function handleSignIn(event) {
     event.preventDefault();
@@ -42,7 +42,7 @@ const SignIn = () => {
         </h1>
         <form onSubmit={handleSignIn}>
           {/* email input */}
-          <div className="flex justify-between items-center">
+          <div className="flex lg:flex-row md:flex-row flex-col justify-between items-center">
             <label htmlFor="email">
               ইমেইল অ্যাড্রেস <span className="text-red-500">*</span>
             </label>
@@ -58,7 +58,7 @@ const SignIn = () => {
           <br />
 
           {/* password input */}
-          <div className="flex justify-between items-center">
+          <div className="flex lg:flex-row md:flex-row flex-col justify-between items-center">
             <label htmlFor="password">
               পাসওয়ার্ড <span className="text-red-500">*</span>
             </label>
@@ -85,23 +85,23 @@ const SignIn = () => {
         <div className="mt-4">
           <div className="flex lg:justify-between md:justify-between lg:flex-row md:flex-row flex-col">
             <p>
-              Did'nt have an account?{" "}
+              Didn't have an account?{" "}
               <label
                 htmlFor="skillnao-modal"
-                className="text-[#ffb96d] hover:underline"
+                className="text-secondary font-bold hover:underline"
                 onClick={() => setOpenSignUpModal(true)}
               >
                 Create account
               </label>
             </p>
-            <p className="hover:underline">
+            {/* <p className="hover:underline">
               <label
                 htmlFor="skillnao-modal"
                 onClick={() => setOpenForgotModal(true)}
               >
                 Forgot password?
               </label>
-            </p>
+            </p> */}
           </div>
         </div>
       </div>
@@ -114,13 +114,13 @@ const SignIn = () => {
           content={<SignUp />}
         />
       )}
-      {openForgotModal && (
+      {/* {openForgotModal && (
         <Modal
           openModal={openForgotModal}
           setOpenModal={setOpenForgotModal}
           content={<Reset />}
         />
-      )}
+      )} */}
     </section>
   );
 };

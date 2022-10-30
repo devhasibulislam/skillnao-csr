@@ -4,29 +4,31 @@ import useGetUser from "../utils/useGetUser";
 import headerLogo from "../assets/header_logo.svg";
 import Modal from "../components/Modal";
 import SignIn from "../components/SignIn";
+import MiniLoading from "./MiniLoading";
+
 
 const Header = () => {
   const [openModal, setOpenModal] = useState(false);
   const { user, isLoading } = useGetUser();
 
   if (isLoading) {
-    return <p>Loading...</p>;
+    return <MiniLoading/>;
   }
 
   const dropDownMenu = [
     {
-      title: "Academic",
+      title: "একাডেমিক",
       anchor: "/category/academic",
     },
     {
-      title: "Professional",
+      title: "প্রফেশনাল",
       anchor: "/category/professional",
     },
   ];
 
   const submenu = (
     <>
-      {dropDownMenu.map((ddm, index) => (
+      {dropDownMenu?.map((ddm, index) => (
         <li key={index}>
           <Link to={ddm.anchor}>{ddm.title}</Link>
         </li>
@@ -49,7 +51,7 @@ const Header = () => {
               <label tabIndex={0} className="btn btn-ghost lg:hidden">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
-                  className="h-5 w-5"
+                  className="h-5 w-5 text-[#ffb663]"
                   fill="none"
                   viewBox="0 0 24 24"
                   stroke="currentColor"
@@ -104,7 +106,7 @@ const Header = () => {
                       <span
                         onClick={() => {
                           localStorage.removeItem("skillNaoToken");
-                          window.location.replace("http://localhost:3000/");
+                          window.location.replace("https://skillnao-csr.vercel.app/");
                           // window.location.reload();
                         }}
                       >
@@ -158,7 +160,7 @@ const Header = () => {
                     <span
                       onClick={() => {
                         localStorage.removeItem("skillNaoToken");
-                        window.location.replace("http://localhost:3000/");
+                        window.location.replace("https://skillnao-csr.vercel.app/");
                         // window.location.reload();
                       }}
                     >
