@@ -21,7 +21,7 @@ const SignUp = () => {
     };
 
     axios
-      .post("https://skillnao-ssr.onrender.com/user/signup", userSignUpInfo)
+      .post("http://localhost:8080/user/signup", userSignUpInfo)
       .then((data) => {
         if (data.data.acknowledgement) {
           toast.success("Successfully signed up new user.");

@@ -8,10 +8,10 @@ const AddCourse = () => {
   function handleCourseThumbnail(event) {
     const formData = new FormData();
     formData.append("file", event.target.files[0]);
-    formData.append("upload_preset", "mtlvthue");
+    formData.append("upload_preset", "gvtyd6ul");
 
     Axios.post(
-      "https://api.cloudinary.com/v1_1/dho0rpn5a/image/upload",
+      "https://api.cloudinary.com/v1_1/db3rsl7jn/image/upload",
       formData
     ).then((response) => {
       setThumbnail(response.data.url);
@@ -40,7 +40,7 @@ const AddCourse = () => {
     };
 
     const addNewCourse = async () => {
-      const request = await fetch("https://skillnao-ssr.onrender.com/course/", {
+      const request = await fetch("http://localhost:8080/course/", {
         method: "POST",
         headers: {
           "content-type": "application/json",

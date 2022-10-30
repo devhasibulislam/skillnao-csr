@@ -9,7 +9,7 @@ function useGetTransactionUser(id) {
 
   const { data, error } = useSWR(
     [
-      `https://skillnao-ssr.onrender.com/user/transaction/${id}`,
+      `http://localhost:8080/user/transaction/${id}`,
       localStorage?.getItem("skillNaoToken"),
     ],
     fetcher,
