@@ -18,6 +18,7 @@ import Home from "./routes/Home";
 import useGetUser from "./utils/useGetUser";
 import Loading from "./shared/Loading";
 import JobRelated from "./routes/JobRelated";
+import AllCourses from "./routes/AllCourses";
 
 function App() {
   const { isLoading } = useGetUser();
@@ -37,6 +38,7 @@ function App() {
             <Route path="/home" element={<Home />} />
 
             <Route path="/category" element={<Category />}>
+              <Route index element={<AllCourses />} />
               <Route path="academic" element={<Academic />} />
               <Route path="professional" element={<Professional />} />
               <Route path="jobRelated" element={<JobRelated />} />
