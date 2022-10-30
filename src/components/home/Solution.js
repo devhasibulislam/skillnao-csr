@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import man from "../../assets/home/solution/man.svg";
+import man from "../../assets/home/solution/man1.svg";
 import Highlight from "./Highlight";
 
 
