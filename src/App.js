@@ -19,52 +19,54 @@ import useGetUser from "./utils/useGetUser";
 import Loading from "./shared/Loading";
 
 function App() {
-  const { isLoading} = useGetUser();
+  const { isLoading } = useGetUser();
   return (
-  <>
-  { isLoading ? <Loading/> :
-      <div className="App">
-      {/* header section */}
-      <Header />
+    <>
+      {isLoading ? (
+        <Loading />
+      ) : (
+        <div className="App">
+          {/* header section */}
+          <Header />
 
-      {/* routers segments => dashboard */}
-      <Routes>
-        {/* Home route */}
-        <Route path="/" element={<Home />} />
-        <Route path="/home" element={<Home />} />
+          {/* routers segments => dashboard */}
+          <Routes>
+            {/* Home route */}
+            <Route path="/" element={<Home />} />
+            <Route path="/home" element={<Home />} />
 
-        <Route path="/category" element={<Category />}>
-          <Route path="academic" element={<Academic />} />
-          <Route path="professional" element={<Professional />} />
-        </Route>
-        <Route path="popularPackages/:id" element={<AuthGuard><CourseDescription/></AuthGuard>} />
+            <Route path="/category" element={<Category />}>
+              <Route path="academic" element={<Academic />} />
+              <Route path="professional" element={<Professional />} />
+            </Route>
+            <Route path="popularPackages/:id" element={<CourseDescription />} />
 
+            {/* routers segments => dashboard */}
+            <Route
+              path="/dashboard"
+              element={
+                <AdminGuard>
+                  <Dashboard />
+                </AdminGuard>
+              }
+            >
+              <Route path="add-course" element={<AddCourse />} />
+              <Route path="manage-courses" element={<ManageCourses />} />
+              <Route path="manage-users" element={<ManageUsers />} />
+            </Route>
 
-        {/* routers segments => dashboard */}
-        <Route
-          path="/dashboard"
-          element={
-            <AdminGuard>
-              <Dashboard />
-            </AdminGuard>
-          }
-        >
-          <Route path="add-course" element={<AddCourse />} />
-          <Route path="manage-courses" element={<ManageCourses />} />
-          <Route path="manage-users" element={<ManageUsers />} />
-        </Route>
+            {/* Not Found */}
+            <Route path="*" element={<NotFound />} />
+          </Routes>
 
-        {/* Not Found */}
-        <Route path="*" element={<NotFound />} />
-      </Routes>
+          {/* footer section */}
+          <Footer />
 
-      {/* footer section */}
-      <Footer />
-
-      {/* toast section */}
-      <Toaster />
-    </div>
-  }</>
+          {/* toast section */}
+          <Toaster />
+        </div>
+      )}
+    </>
   );
 }
 
