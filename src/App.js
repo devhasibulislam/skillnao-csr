@@ -54,7 +54,8 @@ function App() {
                 </AdminGuard>
               }
             >
-              <Route path="add-course" element={<AddCourse />} />
+              <Route index element={<AddCourse />} />
+              {/* <Route path="add-course" element={<AddCourse />} /> */}
               <Route path="manage-courses" element={<ManageCourses />} />
               <Route path="manage-users" element={<ManageUsers />} />
             </Route>
