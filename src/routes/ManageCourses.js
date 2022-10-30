@@ -1,26 +1,36 @@
 import axios from "axios";
 import React from "react";
 import toast from "react-hot-toast";
+import MiniLoading from "../shared/MiniLoading";
 import useGetAllCourses from "../utils/useGetAllCourses";
 
 const ManageCourses = () => {
   const { courses, isLoading } = useGetAllCourses();
 
   if (isLoading) {
-    return <p>Loading...</p>;
+    return <MiniLoading/>;
   }
 
   async function handleCourseRemove(id) {
-    const { data } = await axios.delete(`http://localhost:8080/course/${id}`, {
-      headers: {
-        "content-type": "application/json",
-        authorization: `Bearer ${localStorage.getItem("skillNaoToken")}`,
-      },
-    });
+    const { data } = await axios.delete(
+      `http://localhost:8080/course/${id}`,
+      {
+        headers: {
+          "content-type": "application/json",
+          authorization: `Bearer ${localStorage.getItem("skillNaoToken")}`,
+        },
+      }
+    );
     if (data.acknowledgement) {
       toast.success("Successfully removed a course.");
     }
   }
+
+  /**
+   * display image from node server to react
+   * ----------------------------------------
+   * https://stackoverflow.com/questions/21235696/display-images-in-html-nodejs
+   */
 
   return (
     <section>
@@ -35,7 +45,7 @@ const ManageCourses = () => {
         {/* display courses */}
         <section className="grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 lg:gap-8 md:gap-6 gap-y-4">
           {courses
-            .map((course, index) => (
+            ?.map((course, index) => (
               <div className="card bg-base-100 shadow-xl relative" key={index}>
                 <button
                   className="btn btn-circle absolute top-2 left-2 shadow-lg"
@@ -59,12 +69,12 @@ const ManageCourses = () => {
                 <figure>
                   <img
                     src={
-                      course.thumbnail.includes("http")
-                        ? course.thumbnail
-                        : `http://localhost:8080/${course.thumbnail}`
+                      course?.thumbnail?.includes("http")
+                        ? course?.thumbnail
+                        : `http://localhost:8080/uploads/${course?.thumbnail}`
                     }
                     alt={course.title}
-                    className="h-[380px] w-[525px] object-cover"
+                    className="h-[250px] w-full object-cover"
                   />
                 </figure>
                 <div className="card-body">

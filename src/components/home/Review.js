@@ -58,7 +58,7 @@ const Review = () => {
         // autoPlaySpeed={5000}
         infinite={true}
       >
-        {reviews.map((review, index) => (
+        {reviews?.map((review, index) => (
           <div
             key={index}
             className="grid grid-cols-1 p-8 md:grid-cols-2 md:gap-2 gap-12 items-center"
@@ -88,7 +88,7 @@ const Review = () => {
                   </div>
                   <div className="flex flex-col gap-y-3 text-end">
                     <div className="flex justify-end">
-                      {[...Array(review.ratings).keys()].map((rating) => (
+                      {[...Array(review.ratings).keys()]?.map((rating) => (
                         <img key={rating} src={star} alt="" />
                       ))}
                     </div>

@@ -30,7 +30,7 @@ const Necessary = () => {
             <h1 className='text-4xl text-center font-bold pb-8'>কেন আমাদের প্যাকেজগুলো <Highlight>কার্যকরী?</Highlight></h1>
             <div className='container mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 p-8'>
             {
-                necesities.map((nesessary, index)=><div
+                necesities?.map((nesessary, index)=><div
                 key={index}
                 className='bg-white shadow p-8 rounded-lg'>
                     <img className='mx-auto pb-5' src={nesessary.picture} alt="" />

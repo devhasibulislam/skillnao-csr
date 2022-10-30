@@ -1,13 +1,14 @@
 import axios from "axios";
 import React from "react";
 import toast from "react-hot-toast";
+import MiniLoading from "../shared/MiniLoading";
 import useGetAllUsers from "../utils/useGetAllUsers";
 
 const ManageUsers = () => {
   const { users, isLoading } = useGetAllUsers();
 
   if (isLoading) {
-    return <p>Loading...</p>;
+    return <MiniLoading/>;
   }
 
   function handleUserToAdmin(id) {
@@ -76,7 +77,7 @@ const ManageUsers = () => {
                         No TrnxID available
                       </option>
                     ) : (
-                      user.transactionInfo.map((trnx, index) => (
+                      user.transactionInfo?.map((trnx, index) => (
                         <option key={index}>{trnx.transactionID}</option>
                       ))
                     )}

@@ -9,6 +9,7 @@ import video from "../assets/details-page/video.svg";
 import clock from "../assets/details-page/clock.svg";
 import layers from "../assets/details-page/layers.svg";
 import support from "../assets/details-page/support.svg";
+import MiniLoading from "../shared/MiniLoading";
 
 const CourseDescription = () => {
   const { id } = useParams();
@@ -19,7 +20,7 @@ const CourseDescription = () => {
   const [toggleState, setToggleState] = useState(1);
 
   if (isLoading || isLoadingUser) {
-    return <p>Loading...</p>;
+    return <MiniLoading/>;
   }
 
   const toggleTab = (index) => {
@@ -57,7 +58,7 @@ const CourseDescription = () => {
               : `http://localhost:8080/${course?.thumbnail}`
           }
           alt={course.title}
-          className="my-8 rounded-2xl"
+          className="my-8 rounded-2xl w-full"
         />
 
         <div>
@@ -152,7 +153,7 @@ const CourseDescription = () => {
         </p>
         <div className="bg-[#1A6241] rounded-lg text-white p-5">
           <div className="flex flex-col gap-y-3">
-            {facilities.map((facility, index) => (
+            {facilities?.map((facility, index) => (
               <div key={index} className="flex">
                 <img
                   className="mr-4"

@@ -2,12 +2,12 @@ function addCourseId(id) {
   const ids = getCourseIds();
   if (!ids?.includes(id)) {
     ids.push(id);
-    localStorage.setItem("skillNaoCourseIds", JSON.stringify(ids));
+    localStorage?.setItem("skillNaoCourseIds", JSON.stringify(ids));
   }
 }
 
 function getCourseIds() {
-  const cart = localStorage.getItem("skillNaoCourseIds");
+  const cart = localStorage?.getItem("skillNaoCourseIds");
   let items = null;
 
   if (cart) {

@@ -32,7 +32,7 @@ const CourseSlider = ({ courses }) => {
         infinite={true}
         className="py-8"
       >
-        {courses.map((course) => (
+        {courses?.map((course) => (
           <div className="mx-4" key={course._id}>
             <Card course={course}></Card>
           </div>

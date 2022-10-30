@@ -8,11 +8,11 @@ const Category = () => {
   /* new routes added here, just */
   const routes = [
     {
-      title: "Academic",
+      title: "একাডেমিক",
       anchor: "/category/academic",
     },
     {
-      title: "Professional",
+      title: "প্রফেশনাল",
       anchor: "/category/professional",
     },
   ];
@@ -56,20 +56,18 @@ const Category = () => {
               className="drawer-overlay"
             ></label>
             <ul className="menu p-4 overflow-y-auto w-60 bg-base-100 text-base-content">
-              {routes.map((route, index) => (
+              {routes?.map((route, index) => (
                 <li key={index}>
                   <NavLink
                     to={route.anchor}
                     className={({ isActive }) =>
-                      isActive ? "font-bold underline" : undefined
+                      isActive ? "font-bold text-primary" : undefined
                     }
                   >
                     <input
                       type="checkbox"
-                      className="checkbox checkbox-accent"
-                      checked={location.pathname.includes(
-                        route.title.toLowerCase()
-                      )}
+                      className="checkbox checkbox-primary"
+                      checked={location.pathname === route.anchor}
                     />{" "}
                     {route.title}
                   </NavLink>
