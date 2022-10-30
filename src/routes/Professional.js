@@ -1,6 +1,7 @@
 import React from "react";
 import useGetCoursesWithQuery from "../utils/useGetCoursesWithQuery";
 import Card from "../components/Card";
+import MiniLoading from "../shared/MiniLoading";
 
 const Professional = () => {
   const { courses, isLoading } = useGetCoursesWithQuery(
@@ -8,7 +9,7 @@ const Professional = () => {
   );
 
   if (isLoading) {
-    return <p>Loading...</p>;
+    return <MiniLoading/>;
   }
 
   return (

@@ -85,7 +85,7 @@ const SignIn = () => {
         <div className="mt-4">
           <div className="flex lg:justify-between md:justify-between lg:flex-row md:flex-row flex-col">
             <p>
-              Did'nt have an account?{" "}
+              Didn't have an account?{" "}
               <label
                 htmlFor="skillnao-modal"
                 className="text-secondary font-bold hover:underline"

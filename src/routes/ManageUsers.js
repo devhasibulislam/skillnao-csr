@@ -1,13 +1,14 @@
 import axios from "axios";
 import React from "react";
 import toast from "react-hot-toast";
+import MiniLoading from "../shared/MiniLoading";
 import useGetAllUsers from "../utils/useGetAllUsers";
 
 const ManageUsers = () => {
   const { users, isLoading } = useGetAllUsers();
 
   if (isLoading) {
-    return <p>Loading...</p>;
+    return <MiniLoading/>;
   }
 
   function handleUserToAdmin(id) {

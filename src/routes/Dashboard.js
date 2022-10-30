@@ -1,5 +1,6 @@
 import React from "react";
 import { NavLink, Outlet, useLocation } from "react-router-dom";
+import MiniLoading from "../shared/MiniLoading";
 import useGetUser from "../utils/useGetUser";
 
 const Dashboard = () => {
@@ -7,7 +8,7 @@ const Dashboard = () => {
   const { user, isLoading } = useGetUser();
 
   if (isLoading) {
-    return <p>Loading...</p>;
+    return <MiniLoading/>;
   }
 
   /* new routes added here, just */

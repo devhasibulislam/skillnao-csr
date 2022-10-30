@@ -4,13 +4,15 @@ import useGetUser from "../utils/useGetUser";
 import headerLogo from "../assets/header_logo.svg";
 import Modal from "../components/Modal";
 import SignIn from "../components/SignIn";
+import MiniLoading from "./MiniLoading";
+
 
 const Header = () => {
   const [openModal, setOpenModal] = useState(false);
   const { user, isLoading } = useGetUser();
 
   if (isLoading) {
-    return <p>Loading...</p>;
+    return <MiniLoading/>;
   }
 
   const dropDownMenu = [
