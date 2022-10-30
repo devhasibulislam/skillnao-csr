@@ -17,6 +17,7 @@ import AdminGuard from "./components/AdminGuard";
 import Home from "./routes/Home";
 import useGetUser from "./utils/useGetUser";
 import Loading from "./shared/Loading";
+import JobRelated from "./routes/JobRelated";
 
 function App() {
   const { isLoading } = useGetUser();
@@ -38,6 +39,7 @@ function App() {
             <Route path="/category" element={<Category />}>
               <Route path="academic" element={<Academic />} />
               <Route path="professional" element={<Professional />} />
+              <Route path="jobRelated" element={<JobRelated />} />
             </Route>
             <Route path="popularPackages/:id" element={<CourseDescription />} />
 
