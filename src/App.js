@@ -12,7 +12,6 @@ import Academic from "./routes/Academic";
 import Professional from "./routes/Professional";
 import CourseDescription from "./routes/CourseDescription";
 import NotFound from "./routes/NotFound";
-import AuthGuard from "./components/AuthGuard";
 import AdminGuard from "./components/AdminGuard";
 import Home from "./routes/Home";
 import useGetUser from "./utils/useGetUser";

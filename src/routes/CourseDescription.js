@@ -20,7 +20,7 @@ const CourseDescription = () => {
   const [toggleState, setToggleState] = useState(1);
 
   if (isLoading || isLoadingUser) {
-    return <MiniLoading/>;
+    return <MiniLoading />;
   }
 
   const toggleTab = (index) => {
@@ -170,6 +170,7 @@ const CourseDescription = () => {
           </div>
         </div>
         <div className="flex flex-col gap-y-4 my-5">
+          {/* mendatory */}
           <div className="text-center">
             <label
               onClick={() => setOpenTRNXModal(true)}
@@ -179,6 +180,8 @@ const CourseDescription = () => {
               এখনই অর্ডার করুন
             </label>
           </div>
+
+          {/* optional */}
           <button
             className="btn w-full bg-[#F9F9F9] border-[#FFB357] text-black hover:text-white"
             onClick={() => setOpenSignInModal(true)}
@@ -188,6 +191,8 @@ const CourseDescription = () => {
         </div>
       </div>
       {/* open modal */}
+
+      {/* optional */}
       {openSignInModal &&
         !(user?.role === "user") &&
         user?.role !== "admin" && (
@@ -197,16 +202,24 @@ const CourseDescription = () => {
             content={<SignIn />}
           />
         )}
-      {openTRNXModal &&
-        user?.role === "user" &&
-        user?.role !== "admin" &&
-        !localStorage?.getItem("skillNaoCourseIds")?.includes(course?._id) && (
+
+      {/* mendatory */}
+      {openTRNXModal && user?.role === "user" && user?.role !== "admin" ? (
+        <Modal
+          openModal={openTRNXModal}
+          setOpenModal={setOpenTRNXModal}
+          content={<TrnxID user={user} courseId={course._id} />}
+        />
+      ) : (
+        openTRNXModal &&
+        user?.role !== "admin" && (
           <Modal
             openModal={openTRNXModal}
             setOpenModal={setOpenTRNXModal}
-            content={<TrnxID user={user} courseId={course._id} />}
+            content={<SignIn />}
           />
-        )}
+        )
+      )}
     </div>
   );
 };

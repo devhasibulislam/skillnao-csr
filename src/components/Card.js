@@ -15,7 +15,7 @@ const Card = ({ course }) => {
   };
 
   if (isLoading) {
-    return <MiniLoading/>;
+    return <MiniLoading />;
   }
 
   return (
@@ -45,9 +45,6 @@ const Card = ({ course }) => {
           </div>
           <button
             className="btn-sm bg-[#1A6241] rounded text-white hover:text-black hover:bg-white"
-            disabled={localStorage
-              .getItem("skillNaoCourseIds")
-              ?.includes(course._id)}
             onClick={() => setOpenModal(true)}
           >
             অর্ডার কর
@@ -63,6 +60,7 @@ const Card = ({ course }) => {
           content={<TrnxID courseId={course._id} user={user} />}
         />
       ) : (
+        openModal &&
         user?.role !== "admin" && (
           <Modal
             openModal={openModal}
