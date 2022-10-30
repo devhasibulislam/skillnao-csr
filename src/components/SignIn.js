@@ -23,6 +23,7 @@ const SignIn = () => {
         if (response.data.acknowledgement) {
           toast.success("Successfully signed in new user");
           localStorage.setItem("skillNaoToken", response.data.data.token);
+          window.location.reload();
         }
       })
       .catch((error) => {

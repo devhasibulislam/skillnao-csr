@@ -26,6 +26,7 @@ const SignUp = () => {
         if (data.data.acknowledgement) {
           toast.success("Successfully signed up new user.");
           event.target.reset();
+          window.location.reload();
         }
       })
       .catch((error) => {
