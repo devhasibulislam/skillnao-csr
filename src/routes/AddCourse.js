@@ -4,6 +4,7 @@ import toast from "react-hot-toast";
 
 const AddCourse = () => {
   const [thumbnail, setThumbnail] = useState("");
+  const [category, setCategory] = useState("academic");
 
   function handleCourseThumbnail(event) {
     const formData = new FormData();
@@ -29,7 +30,7 @@ const AddCourse = () => {
 
     const courseInfo = {
       title: event.target.title.value,
-      category: event.target.category.value,
+      category: category,
       about: event.target.about.value,
       thumbnail: thumbnail || undefined,
       description: {
@@ -57,6 +58,8 @@ const AddCourse = () => {
     addNewCourse();
   }
 
+  console.log(category);
+
   return (
     <section>
       <form
@@ -82,13 +85,25 @@ const AddCourse = () => {
           <label className="block mb-1" htmlFor="name">
             Course Category <span className="text-red-500">*</span>
           </label>
-          <input
+          {/* <input
             type="text"
             name="category"
             placeholder="Enter course category"
             className="input input-bordered input-success w-full max-w-xs"
             required
-          />
+          /> */}
+
+          <select
+            className="select select-success w-full max-w-xs"
+            onChange={(event) => setCategory(event.target.value)}
+          >
+            <option disabled selected>
+              Pick category
+            </option>
+            <option value={"academic"}>একাডেমিক</option>
+            <option value={"professional"}>প্রফেশনাল</option>
+            <option value={"job-related"}>জব সংক্রান্ত</option>
+          </select>
         </div>
 
         {/* about input */}

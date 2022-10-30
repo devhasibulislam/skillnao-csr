@@ -15,7 +15,7 @@ const Dashboard = () => {
   const routes = [
     {
       title: "Add Course",
-      anchor: "/dashboard/add-course",
+      anchor: "/dashboard",
     },
     {
       title: "Manage Courses",

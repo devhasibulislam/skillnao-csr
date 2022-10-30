@@ -37,12 +37,13 @@ const Card = ({ course }) => {
         </h2>
         {/* <p>{course.about.slice(0, 45)}...</p> */}
         <div className="card-actions justify-between items-center">
-          <div
-            className="badge bg-[#ffb96d] text-black whitespace-nowrap tooltip"
-            data-tip="Price ৳"
+          <p
+          className="font-bold"
+            // className="badge bg-[#ffb96d] text-black whitespace-nowrap tooltip"
+            // data-tip="Price ৳"
           >
             ৳ {Number(course.price).toLocaleString("bn-BD")}
-          </div>
+          </p>
           <button
             className="btn-sm bg-[#1A6241] rounded text-white hover:text-black hover:bg-white"
             onClick={() => setOpenModal(true)}

@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import hero from "../../assets/home/hero/banner.svg"
+import hero from "../../assets/home/hero/bannerHero.svg"
 
 const Banner = () => {
   return (
@@ -8,10 +8,11 @@ const Banner = () => {
       <div className="container mx-auto px-8 flex flex-col md:flex-row justify-between items-center">
         <div>
           <h1 className="leading-relaxed text-4xl">
-            কোন পথে এগুবে ভেবে <br />
-            পাচ্ছো না? আমরাই <br /> তোমাকে পথ বলে দিব!{" "}
+          All you need is a mentor.
+          
           </h1>
-          <p className="py-8">All you need is a mentor.</p>
+          <p className="py-8">  কোন পথে এগুবে ভেবে 
+            পাচ্ছো না? আমরাই  তোমাকে পথ বলে দিব!{" "}</p>
           <Link
             to="/category"
             className="btn btn-md btn-secondary border-0 text-black"
