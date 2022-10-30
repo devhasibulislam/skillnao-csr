@@ -1,12 +1,13 @@
 import React from "react";
-import NotFound from "../routes/NotFound";
+import Unauthorized from "../routes/Unauthorized";
+import MiniLoading from "../shared/MiniLoading";
 import useGetUser from "../utils/useGetUser";
 
 const AuthGuard = ({ children }) => {
   const { user, isLoading } = useGetUser();
 
   if (isLoading) {
-    return <p>Loading...</p>;
+    return <MiniLoading/>;
   }
 
   return (
@@ -14,7 +15,7 @@ const AuthGuard = ({ children }) => {
       {user?.role === "admin" || user?.role === "user" ? (
         children
       ) : (
-        <NotFound />
+        <Unauthorized />
       )}
     </section>
   );

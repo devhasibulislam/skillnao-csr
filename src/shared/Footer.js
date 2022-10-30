@@ -4,8 +4,8 @@ import FooterTop from "./FooterTop";
 
 const Footer = () => {
   return (
-    <section className="bg-base-300">
-      <div className="container mx-auto">
+    <section className="bg-[#181818] ">
+      <div >
         <FooterTop />
         <hr className="border-gray-500" />
         <FooterBottom />

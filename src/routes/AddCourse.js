@@ -1,22 +1,27 @@
-import axios from "axios";
+import Axios from "axios";
 import React, { useState } from "react";
 import toast from "react-hot-toast";
 
 const AddCourse = () => {
   const [thumbnail, setThumbnail] = useState("");
 
-  async function handleCourseThumbnail(event) {
+  function handleCourseThumbnail(event) {
     const formData = new FormData();
-    formData.append("thumbnail", event.target.files[0]);
+    formData.append("file", event.target.files[0]);
+    formData.append("upload_preset", "gvtyd6ul");
 
-    const { data } = await axios.post(
-      "http://localhost:8080/course/thumbnail",
+    Axios.post(
+      "https://api.cloudinary.com/v1_1/db3rsl7jn/image/upload",
       formData
-    );
-    if (data.acknowledgement) {
-      setThumbnail(data.data.filename);
+    ).then((response) => {
+      setThumbnail(response.data.url);
       toast.success("Course thumbnail uploaded.");
-    }
+    });
+
+    // if (data.acknowledgement) {
+    //   setThumbnail(data.data.url);
+    //   toast.success("Course thumbnail uploaded.");
+    // }
   }
 
   async function handleAddCourse(event) {
@@ -149,6 +154,7 @@ const AddCourse = () => {
             type="file"
             name="thumbnail"
             className="input input-bordered input-success w-full max-w-xs pt-2"
+            placeholder="png/jpg/jpeg/webp"
             onChange={handleCourseThumbnail}
           />
         </div>

@@ -10,7 +10,7 @@ function useGetTransactionUser(id) {
   const { data, error } = useSWR(
     [
       `http://localhost:8080/user/transaction/${id}`,
-      localStorage.getItem("skillNaoToken"),
+      localStorage?.getItem("skillNaoToken"),
     ],
     fetcher,
     { refreshInterval: 1000 }

@@ -3,6 +3,8 @@ import toast from "react-hot-toast";
 import addCourseId from "../utils/useCourseIds";
 import ConfirmOrder from "./ConfirmOrder";
 import Modal from "./Modal";
+import bkash from "../assets/order/bkashlogo.svg";
+import Highlight from "./home/Highlight";
 
 const TrnxID = ({ user, courseId }) => {
   const [openModal, setOpenModal] = useState(false);
@@ -32,7 +34,6 @@ const TrnxID = ({ user, courseId }) => {
         }
       );
       const response = await request.json();
-      console.log(response);
       if (response.acknowledgement) {
         toast.success("TrnxID accepted and store on DB.");
         addCourseId(courseId);
@@ -44,13 +45,14 @@ const TrnxID = ({ user, courseId }) => {
 
   return (
     <section>
-      <h1 className="font-bold text-2xl text-center border-b-2 border-b-[#ffb96d] w-fit mx-auto mb-8">
-        Submit TrnxID
+      <img className="w-40" src={bkash} alt="" />
+      <h1 className="font-bold mb-4">
+        <Highlight>বিকাশ নাম্বার :</Highlight> 0172.......
       </h1>
       <form onSubmit={handleTrnxID}>
         {/* email input */}
-        <div className="flex justify-between items-center">
-          <label htmlFor="email">
+        <div className="flex lg:flex-row md:flex-row flex-col justify-between items-center">
+          <label htmlFor="email" className="whitespace-nowrap">
             ইমেইল অ্যাড্রেস <span className="text-red-500">*</span>
           </label>
           <input
@@ -65,8 +67,8 @@ const TrnxID = ({ user, courseId }) => {
         <br />
 
         {/* user name input */}
-        <div className="flex justify-between items-center">
-          <label htmlFor="name">
+        <div className="flex lg:flex-row md:flex-row flex-col justify-between items-center">
+          <label htmlFor="name" className="whitespace-nowrap">
             ইউজার নেম <span className="text-red-500">*</span>
           </label>
           <input
@@ -81,8 +83,8 @@ const TrnxID = ({ user, courseId }) => {
         <br />
 
         {/* whatsApp number input */}
-        <div className="flex justify-between items-center">
-          <label htmlFor="name">
+        <div className="flex lg:flex-row md:flex-row flex-col justify-between items-center">
+          <label htmlFor="name" className="whitespace-nowrap">
             হয়াটস-এপ নাম্বার <span className="text-red-500">*</span>
           </label>
           <input
@@ -97,7 +99,7 @@ const TrnxID = ({ user, courseId }) => {
         <br />
 
         {/* transaction ID */}
-        <div className="flex justify-between items-center">
+        <div className="flex lg:flex-row md:flex-row flex-col justify-between items-center">
           <label htmlFor="password">
             TrnxID <span className="text-red-500">*</span>
           </label>
@@ -110,10 +112,10 @@ const TrnxID = ({ user, courseId }) => {
         </div>
 
         {/* sign up button */}
-        <div className="text-right mt-6">
+        <div className="text-center mt-6">
           <input
             type="submit"
-            className="btn btn-wide bg-[#006243] hover:bg-white hover:text-black border-0"
+            className="btn btn-wide bg-primary hover:bg-white hover:text-black border-0"
             onClick={() => setOpenModal(true)}
             value="কনফার্ম কর"
           />

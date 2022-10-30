@@ -10,7 +10,7 @@ function useGetCoursesWithQuery(query) {
   const { data, error } = useSWR(
     [
       `http://localhost:8080/course?${query}`,
-      localStorage.getItem("skillNaoToken"),
+      localStorage?.getItem("skillNaoToken"),
     ],
     fetcher,
     { refreshInterval: 1000 }

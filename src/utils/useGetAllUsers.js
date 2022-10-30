@@ -8,7 +8,7 @@ function useGetAllUsers() {
       .then((res) => res.data);
 
   const { data, error } = useSWR(
-    ["http://localhost:8080/user/all", localStorage.getItem("skillNaoToken")],
+    ["http://localhost:8080/user/all", localStorage?.getItem("skillNaoToken")],
     fetcher,
     { refreshInterval: 1000 }
   );

@@ -1,15 +1,18 @@
 import React from "react";
-import NotFound from "../routes/NotFound";
+import Unauthorized from "../routes/Unauthorized";
+import MiniLoading from "../shared/MiniLoading";
 import useGetUser from "../utils/useGetUser";
 
 const AdminGuard = ({ children }) => {
   const { user, isLoading } = useGetUser();
 
   if (isLoading) {
-    return <p>Loading...</p>;
+    return <MiniLoading/>;
   }
 
-  return <section>{user?.role === "admin" ? children : <NotFound />}</section>;
+  return (
+    <section>{user?.role === "admin" ? children : <Unauthorized />}</section>
+  );
 };
 
 export default AdminGuard;
