@@ -15,7 +15,7 @@ const Card = ({ course }) => {
   };
 
   if (isLoading) {
-    return <MiniLoading/>;
+    return <MiniLoading />;
   }
 
   return (
@@ -37,17 +37,15 @@ const Card = ({ course }) => {
         </h2>
         {/* <p>{course.about.slice(0, 45)}...</p> */}
         <div className="card-actions justify-between items-center">
-          <div
-            className="badge bg-[#ffb96d] text-black whitespace-nowrap tooltip"
-            data-tip="Price ৳"
+          <p
+          className="font-bold"
+            // className="badge bg-[#ffb96d] text-black whitespace-nowrap tooltip"
+            // data-tip="Price ৳"
           >
             ৳ {Number(course.price).toLocaleString("bn-BD")}
-          </div>
+          </p>
           <button
             className="btn-sm bg-[#1A6241] rounded text-white hover:text-black hover:bg-white"
-            disabled={localStorage
-              .getItem("skillNaoCourseIds")
-              ?.includes(course._id)}
             onClick={() => setOpenModal(true)}
           >
             অর্ডার কর
@@ -63,6 +61,7 @@ const Card = ({ course }) => {
           content={<TrnxID courseId={course._id} user={user} />}
         />
       ) : (
+        openModal &&
         user?.role !== "admin" && (
           <Modal
             openModal={openModal}

@@ -5,7 +5,6 @@ import AcademicCourses from "../components/home/courses/AcademicCourses";
 import PopularCourses from "../components/home/courses/PopularCourses";
 import ProfessionalCourses from "../components/home/courses/ProfessionalCourses";
 import Necessary from "../components/home/Necessary";
-import OurPartners from "../components/home/OurPartners";
 import Review from "../components/home/Review";
 import Solution from "../components/home/Solution";
 
@@ -19,7 +18,7 @@ const Home = () => {
    <AcademicCourses/>
    <ProfessionalCourses/>
    <Review/>
-   <OurPartners/>
+  
   </section>;
 };
 

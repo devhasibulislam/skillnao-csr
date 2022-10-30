@@ -15,6 +15,10 @@ const Category = () => {
       title: "প্রফেশনাল",
       anchor: "/category/professional",
     },
+    {
+      title: "জব সংক্রান্ত",
+      anchor: "/category/jobRelated",
+    },
   ];
 
   return (
