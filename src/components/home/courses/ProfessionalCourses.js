@@ -4,13 +4,13 @@ import useGetCoursesWithQuery from "../../../utils/useGetCoursesWithQuery";
 import Highlight from "../Highlight";
 import CourseSlider from "./CourseSlider";
 
-const ProfessionalCourses = () => {
+const ProfessionalCourses = ({ setOpenModal, setCourse, setUser }) => {
   const { courses, isLoading } = useGetCoursesWithQuery(
     "category=professional"
   );
 
   if (isLoading) {
-    return <MiniLoading/>;
+    return <MiniLoading />;
   }
 
   return (
@@ -18,7 +18,12 @@ const ProfessionalCourses = () => {
       <h1 className="text-4xl text-center pb-12 font-bold">
         প্রফেশনাল <Highlight> সেকশান</Highlight>
       </h1>
-      <CourseSlider courses={courses} />
+      <CourseSlider
+        courses={courses}
+        setOpenModal={setOpenModal}
+        setCourse={setCourse}
+        setUser={setUser}
+      />
     </div>
   );
 };

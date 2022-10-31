@@ -4,11 +4,11 @@ import useGetCoursesWithQuery from "../../../utils/useGetCoursesWithQuery";
 import Highlight from "../Highlight";
 import CourseSlider from "./CourseSlider";
 
-const AcademicCourses = () => {
+const AcademicCourses = ({ setOpenModal, setCourse, setUser }) => {
   const { courses, isLoading } = useGetCoursesWithQuery("category=academic");
 
   if (isLoading) {
-    return <MiniLoading/>;
+    return <MiniLoading />;
   }
 
   return (
@@ -16,7 +16,12 @@ const AcademicCourses = () => {
       <h1 className="text-4xl text-center pb-12 font-bold">
         একাডেমিক <Highlight>সেকশান</Highlight>
       </h1>
-      <CourseSlider courses={courses} />
+      <CourseSlider
+        courses={courses}
+        setOpenModal={setOpenModal}
+        setCourse={setCourse}
+        setUser={setUser}
+      />
     </div>
   );
 };

@@ -6,7 +6,7 @@ import Modal from "./Modal";
 import SignIn from "./SignIn";
 import TrnxID from "./TrnxID";
 
-const Card = ({ course }) => {
+const Card = ({ course, setOpenModal: som }) => {
   const [openModal, setOpenModal] = useState(false);
   const { user, isLoading } = useGetUser();
   const navigate = useNavigate();
@@ -38,7 +38,7 @@ const Card = ({ course }) => {
         {/* <p>{course.about.slice(0, 45)}...</p> */}
         <div className="card-actions justify-between items-center">
           <p
-          className="font-bold"
+            className="font-bold"
             // className="badge bg-[#ffb96d] text-black whitespace-nowrap tooltip"
             // data-tip="Price ৳"
           >
@@ -46,7 +46,10 @@ const Card = ({ course }) => {
           </p>
           <button
             className="btn-sm bg-[#1A6241] rounded text-white hover:text-black hover:bg-white"
-            onClick={() => setOpenModal(true)}
+            onClick={() => {
+              setOpenModal(true);
+              som(true);
+            }}
           >
             অর্ডার কর
           </button>
