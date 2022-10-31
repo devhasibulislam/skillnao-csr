@@ -84,7 +84,7 @@ const ManageUsers = () => {
                   </select>
                 </td>
                 <td>{user.role}</td>
-                <td className="flex flex-row gap-x-4">
+                <td className="flex flex-row gap-x-4 mt-[8px]">
                   {/* make admin */}
                   <span
                     className="tooltip"

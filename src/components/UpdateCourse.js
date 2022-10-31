@@ -1,10 +1,17 @@
+import React from "react";
+import { useState } from "react";
+import Highlight from "./home/Highlight";
 import Axios from "axios";
-import React, { useState } from "react";
 import toast from "react-hot-toast";
 
-const AddCourse = () => {
+const UpdateCourse = ({ course }) => {
+  const [title, setTitle] = useState(course.title);
+  const [category, setCategory] = useState(course.category);
+  const [about, setAbout] = useState(course.about);
   const [thumbnail, setThumbnail] = useState("");
-  const [category, setCategory] = useState("academic");
+  const [reason, setReason] = useState(course.description.reason);
+  const [purpose, setPurpose] = useState(course.description.purpose);
+  const [price, setPrice] = useState(course.price);
 
   function handleCourseThumbnail(event) {
     const formData = new FormData();
@@ -20,14 +27,14 @@ const AddCourse = () => {
     });
   }
 
-  async function handleAddCourse(event) {
+  async function handleUpdateCourse(event) {
     event.preventDefault();
 
     const courseInfo = {
       title: event.target.title.value,
       category: category,
       about: event.target.about.value,
-      thumbnail: thumbnail || undefined,
+      thumbnail: thumbnail || course.thumbnail,
       description: {
         reason: event.target.reason.value,
         purpose: event.target.purpose.value,
@@ -35,30 +42,35 @@ const AddCourse = () => {
       price: event.target.price.value,
     };
 
-    const addNewCourse = async () => {
-      const request = await fetch("http://localhost:8080/course/", {
-        method: "POST",
-        headers: {
-          "content-type": "application/json",
-          authorization: `Bearer ${localStorage.getItem("skillNaoToken")}`,
-        },
-        body: JSON.stringify(courseInfo),
-      });
+    const updateExistingCourse = async () => {
+      const request = await fetch(
+        `http://localhost:8080/course/${course._id}`,
+        {
+          method: "PATCH",
+          headers: {
+            "content-type": "application/json",
+            authorization: `Bearer ${localStorage.getItem("skillNaoToken")}`,
+          },
+          body: JSON.stringify(courseInfo),
+        }
+      );
       const response = await request.json();
       if (response.acknowledgement) {
         toast.success("New course insertion complete.");
         event.target.reset();
+        window.location.reload();
       }
     };
-    addNewCourse();
+    updateExistingCourse();
   }
 
   return (
     <section>
-      <form
-        onSubmit={handleAddCourse}
-        className="grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 items-center"
-      >
+      <h1 className="font-bold mb-4">
+        <Highlight>{course._id}</Highlight>
+      </h1>
+
+      <form onSubmit={handleUpdateCourse}>
         {/* title input */}
         <div className="mb-4">
           <label className="block mb-1" htmlFor="name">
@@ -67,9 +79,9 @@ const AddCourse = () => {
           <input
             type="text"
             name="title"
-            placeholder="Enter course title"
-            className="input input-bordered input-success w-full max-w-xs"
-            required
+            className="input input-bordered input-success w-full"
+            value={title}
+            onChange={(e) => setTitle(e.target.value)}
           />
         </div>
 
@@ -79,11 +91,11 @@ const AddCourse = () => {
             Course Category <span className="text-red-500">*</span>
           </label>
           <select
-            className="select select-success w-full max-w-xs"
+            className="select select-success w-full"
             onChange={(event) => setCategory(event.target.value)}
           >
             <option disabled selected>
-              Pick category
+              {category}
             </option>
             <option value={"academic"}>একাডেমিক</option>
             <option value={"professional"}>প্রফেশনাল</option>
@@ -98,9 +110,10 @@ const AddCourse = () => {
           </label>
           <textarea
             name="about"
-            className="textarea textarea-success w-full max-w-xs"
+            className="textarea textarea-success w-full"
             placeholder="Enter course about"
-            required
+            value={about}
+            onChange={(e) => setAbout(e.target.value)}
           />
         </div>
 
@@ -111,9 +124,9 @@ const AddCourse = () => {
           </label>
           <textarea
             name="reason"
-            className="textarea textarea-success w-full max-w-xs"
-            placeholder="Enter course reason"
-            required
+            className="textarea textarea-success w-full"
+            value={reason}
+            onChange={(e) => setReason(e.target.value)}
           />
         </div>
 
@@ -124,9 +137,9 @@ const AddCourse = () => {
           </label>
           <textarea
             name="purpose"
-            className="textarea textarea-success w-full max-w-xs"
-            placeholder="Enter course purpose"
-            required
+            className="textarea textarea-success w-full"
+            value={purpose}
+            onChange={(e) => setPurpose(e.target.value)}
           />
         </div>
 
@@ -138,9 +151,9 @@ const AddCourse = () => {
           <input
             type="number"
             name="price"
-            placeholder="Enter course price"
-            className="input input-bordered input-success w-full max-w-xs"
-            required
+            className="input input-bordered input-success w-full pt-2"
+            value={price}
+            onChange={(e) => setPrice(e.target.value)}
           />
         </div>
 
@@ -153,7 +166,7 @@ const AddCourse = () => {
           <input
             type="file"
             name="thumbnail"
-            className="input input-bordered input-success w-full max-w-xs pt-2"
+            className="input input-bordered input-success w-full pt-2"
             placeholder="png/jpg/jpeg/webp"
             onChange={handleCourseThumbnail}
           />
@@ -164,7 +177,7 @@ const AddCourse = () => {
           <input
             type="submit"
             className="btn btn-wide bg-[#006243] hover:bg-white hover:text-black border-0"
-            value="Add Course"
+            value="Update Course"
           />
         </div>
       </form>
@@ -172,4 +185,4 @@ const AddCourse = () => {
   );
 };
 
-export default AddCourse;
+export default UpdateCourse;
