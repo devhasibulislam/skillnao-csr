@@ -44,7 +44,7 @@ const UpdateCourse = ({ course }) => {
 
     const updateExistingCourse = async () => {
       const request = await fetch(
-        `http://localhost:8080/course/${course._id}`,
+        `https://skillnao-ssr.onrender.com/course/${course._id}`,
         {
           method: "PATCH",
           headers: {

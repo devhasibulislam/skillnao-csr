@@ -24,7 +24,7 @@ const TrnxID = ({ user, courseId }) => {
 
     const updateUserWithTrnxID = async () => {
       const request = await fetch(
-        `http://localhost:8080/user/transaction/${user._id}`,
+        `https://skillnao-ssr.onrender.com/user/transaction/${user._id}`,
         {
           method: "PATCH",
           headers: {

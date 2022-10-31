@@ -20,7 +20,7 @@ function useGetUser() {
 
   const { data, error } = useSWR(
     [
-      "http://localhost:8080/user/me",
+      "https://skillnao-ssr.onrender.com/user/me",
       localStorage?.getItem("skillNaoToken"),
     ],
     fetcher

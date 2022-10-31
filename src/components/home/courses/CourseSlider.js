@@ -27,8 +27,8 @@ const CourseSlider = ({ courses }) => {
       <Carousel
         swipeable="true"
         responsive={responsive}
-        autoPlay={true}
-        autoPlaySpeed={5000}
+        // autoPlay={true}
+        // autoPlaySpeed={5000}
         infinite={true}
         className="py-8"
       >
