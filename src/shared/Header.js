@@ -165,10 +165,10 @@ const Header = () => {
                     <span
                       onClick={() => {
                         localStorage.removeItem("skillNaoToken");
-                        window.location.replace(
-                          "https://skillnao-csr.vercel.app/"
-                        );
-                        // window.location.reload();
+                        // window.location.replace(
+                        //   "https://skillnao-csr.vercel.app/"
+                        // );
+                        window.location.reload();
                       }}
                     >
                       লগ-আউট

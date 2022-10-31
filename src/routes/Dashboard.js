@@ -25,6 +25,10 @@ const Dashboard = () => {
       title: "Manage Users",
       anchor: "/dashboard/manage-users",
     },
+    {
+      title: "Manage Orders",
+      anchor: "/dashboard/manage-orders",
+    },
   ];
 
   return (

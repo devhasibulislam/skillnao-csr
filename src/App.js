@@ -18,6 +18,7 @@ import useGetUser from "./utils/useGetUser";
 import Loading from "./shared/Loading";
 import JobRelated from "./routes/JobRelated";
 import AllCourses from "./routes/AllCourses";
+import ManageOrders from "./routes/ManageOrders";
 
 function App() {
   const { isLoading } = useGetUser();
@@ -54,9 +55,9 @@ function App() {
               }
             >
               <Route index element={<AddCourse />} />
-              {/* <Route path="add-course" element={<AddCourse />} /> */}
               <Route path="manage-courses" element={<ManageCourses />} />
               <Route path="manage-users" element={<ManageUsers />} />
+              <Route path="manage-orders" element={<ManageOrders />} />
             </Route>
 
             {/* Not Found */}
