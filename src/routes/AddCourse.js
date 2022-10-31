@@ -18,11 +18,6 @@ const AddCourse = () => {
       setThumbnail(response.data.url);
       toast.success("Course thumbnail uploaded.");
     });
-
-    // if (data.acknowledgement) {
-    //   setThumbnail(data.data.url);
-    //   toast.success("Course thumbnail uploaded.");
-    // }
   }
 
   async function handleAddCourse(event) {
@@ -85,14 +80,6 @@ const AddCourse = () => {
           <label className="block mb-1" htmlFor="name">
             Course Category <span className="text-red-500">*</span>
           </label>
-          {/* <input
-            type="text"
-            name="category"
-            placeholder="Enter course category"
-            className="input input-bordered input-success w-full max-w-xs"
-            required
-          /> */}
-
           <select
             className="select select-success w-full max-w-xs"
             onChange={(event) => setCategory(event.target.value)}
