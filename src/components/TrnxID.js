@@ -5,15 +5,10 @@ import ConfirmOrder from "./ConfirmOrder";
 import Modal from "./Modal";
 import bkash from "../assets/order/bkashlogo.svg";
 import Highlight from "./home/Highlight";
-import useGetUser from "../utils/useGetUser";
 
 const TrnxID = ({ user, courseId }) => {
   const [openModal, setOpenModal] = useState(false);
-  const { user: usr, isLoading } = useGetUser();
-
-  if (isLoading) {
-    return <p>Loading...</p>;
-  }
+  const [tnx, setTNX] = useState("");
 
   async function handleTrnxID(event) {
     event.preventDefault();
@@ -45,8 +40,8 @@ const TrnxID = ({ user, courseId }) => {
         addCourseId(courseId);
         setTimeout(() => {
           window.location.reload();
-        }, 5000);
-        event.target.reset();
+        }, 1000);
+        // event.target.reset();
       }
     };
     updateUserWithTrnxID();
@@ -116,6 +111,7 @@ const TrnxID = ({ user, courseId }) => {
             type="text"
             name="trnx"
             className="input input-bordered input-success w-full max-w-xs"
+            onChange={(e) => setTNX(e.target.value)}
             required
           />
         </div>
@@ -125,14 +121,14 @@ const TrnxID = ({ user, courseId }) => {
           <input
             type="submit"
             className="btn btn-wide bg-primary hover:bg-white hover:text-black border-0"
-            onClick={() => setOpenModal(true)}
+            onClick={() => tnx !== "" && setOpenModal(true)}
             value="কনফার্ম কর"
           />
         </div>
       </form>
 
       {/* ask to open confirm modal */}
-      {(openModal && usr?.role === "user" && !usr?.role === "admin") && (
+      {openModal && tnx !== "" && (
         <Modal
           openModal={openModal}
           setOpenModal={setOpenModal}
