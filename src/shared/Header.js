@@ -6,13 +6,12 @@ import Modal from "../components/Modal";
 import SignIn from "../components/SignIn";
 import MiniLoading from "./MiniLoading";
 
-
 const Header = () => {
   const [openModal, setOpenModal] = useState(false);
   const { user, isLoading } = useGetUser();
 
   if (isLoading) {
-    return <MiniLoading/>;
+    return <MiniLoading />;
   }
 
   const dropDownMenu = [
@@ -23,6 +22,10 @@ const Header = () => {
     {
       title: "প্রফেশনাল",
       anchor: "/category/professional",
+    },
+    {
+      title: "জব সংক্রান্ত",
+      anchor: "/category/jobRelated",
     },
   ];
 
@@ -106,7 +109,9 @@ const Header = () => {
                       <span
                         onClick={() => {
                           localStorage.removeItem("skillNaoToken");
-                          window.location.replace("https://skillnao-csr.vercel.app/");
+                          window.location.replace(
+                            "https://skillnao-csr.vercel.app/"
+                          );
                           // window.location.reload();
                         }}
                       >
@@ -160,7 +165,9 @@ const Header = () => {
                     <span
                       onClick={() => {
                         localStorage.removeItem("skillNaoToken");
-                        window.location.replace("https://skillnao-csr.vercel.app/");
+                        window.location.replace(
+                          "https://skillnao-csr.vercel.app/"
+                        );
                         // window.location.reload();
                       }}
                     >

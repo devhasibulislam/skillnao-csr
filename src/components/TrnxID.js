@@ -8,6 +8,7 @@ import Highlight from "./home/Highlight";
 
 const TrnxID = ({ user, courseId }) => {
   const [openModal, setOpenModal] = useState(false);
+  const [tid, setTID] = useState("");
 
   async function handleTrnxID(event) {
     event.preventDefault();
@@ -107,6 +108,7 @@ const TrnxID = ({ user, courseId }) => {
             type="text"
             name="trnx"
             className="input input-bordered input-success w-full max-w-xs"
+            onChange={(e) => setTID(e.target.value)}
             required
           />
         </div>
@@ -123,7 +125,7 @@ const TrnxID = ({ user, courseId }) => {
       </form>
 
       {/* ask to open confirm modal */}
-      {openModal && (
+      {openModal && tid && (
         <Modal
           openModal={openModal}
           setOpenModal={setOpenModal}
