@@ -186,7 +186,7 @@ const CourseDescription = () => {
         <Modal
           openModal={openTRNXModal}
           setOpenModal={setOpenTRNXModal}
-          content={<TrnxID user={user} courseId={course._id} />}
+          content={<TrnxID user={user} course={course} />}
         />
       ) : (
         openTRNXModal &&

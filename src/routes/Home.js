@@ -49,7 +49,7 @@ const Home = () => {
         <Modal
           openModal={openModal}
           setOpenModal={setOpenModal}
-          content={<TrnxID courseId={course._id} user={user} />}
+          content={<TrnxID course={course} user={user} />}
         />
       ) : (
         openModal &&

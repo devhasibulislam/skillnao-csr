@@ -53,7 +53,7 @@ const ManageOrders = () => {
               <th>Name</th>
               <th>Email</th>
               <th>WhatsApp</th>
-              <th>Trnx ID</th>
+              <th>Trnx ID | Category | Price</th>
               <th>Role</th>
               <th>Action</th>
             </tr>
@@ -69,19 +69,9 @@ const ManageOrders = () => {
                     <td>{user.email}</td>
                     <td>{user.whatsApp}</td>
                     <td>
-                      <select className="select select-sm select-success w-full">
-                        {/* {user?.role === "admin" ? (
-                      <option disabled selected>
-                        No TrnxID available
-                      </option>
-                    ) : (
-                      user.transactionInfo?.map((trnx, index) => (
-                        <option key={index}>{trnx.transactionID}</option>
-                      ))
-                    )} */}
-
+                      <select className="select select-sm select-success max-w-fit">
                         {user.transactionInfo.map((trnx, index) => (
-                          <option key={index}>{trnx.transactionID}</option>
+                          <option key={index}>{trnx.transactionID} | {trnx.courseID.category} | <span>৳</span> {trnx.courseID.price}</option>
                         ))}
                       </select>
                     </td>

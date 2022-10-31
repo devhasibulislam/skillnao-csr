@@ -1,12 +1,11 @@
 import React, { useState } from "react";
 import toast from "react-hot-toast";
-import addCourseId from "../utils/useCourseIds";
 import ConfirmOrder from "./ConfirmOrder";
 import Modal from "./Modal";
 import bkash from "../assets/order/bkashlogo.svg";
 import Highlight from "./home/Highlight";
 
-const TrnxID = ({ user, courseId }) => {
+const TrnxID = ({ user, course }) => {
   const [openModal, setOpenModal] = useState(false);
   const [tnx, setTNX] = useState("");
 
@@ -17,7 +16,7 @@ const TrnxID = ({ user, courseId }) => {
       transactionInfo: [
         {
           transactionID: event.target.trnx.value,
-          courseID: courseId,
+          courseID: course._id,
         },
       ],
     };
@@ -37,7 +36,6 @@ const TrnxID = ({ user, courseId }) => {
       const response = await request.json();
       if (response.acknowledgement) {
         toast.success("TrnxID accepted successfully.");
-        addCourseId(courseId);
         setTimeout(() => {
           window.location.reload();
         }, 1000);
@@ -49,8 +47,11 @@ const TrnxID = ({ user, courseId }) => {
 
   return (
     <section>
-      <img className="w-40" src={bkash} alt="" />
-      <h1 className="font-bold mb-4">
+      <h1 className="font-bold text-2xl text-center border-b-2 border-b-[#ffb96d] w-fit mx-auto mb-8">
+      চেক আউট
+      </h1>
+      <img className="w-40 mb-4" src={bkash} alt="" />
+      <h1 className="font-bold mb-8">
         <Highlight>বিকাশ নাম্বার :</Highlight> 0172.......
       </h1>
       <form onSubmit={handleTrnxID}>
@@ -95,6 +96,22 @@ const TrnxID = ({ user, courseId }) => {
             type="text"
             name="whatsApp"
             value={user.whatsApp}
+            readOnly
+            className="input input-bordered input-success w-full max-w-xs"
+          />
+        </div>
+
+        <br />
+
+        {/* course price input */}
+        <div className="flex lg:flex-row md:flex-row flex-col justify-between items-center">
+          <label htmlFor="name" className="whitespace-nowrap">
+            কোর্স প্রাইস <span className="text-red-500">৳</span>
+          </label>
+          <input
+            type="text"
+            name="whatsApp"
+            value={course.price}
             readOnly
             className="input input-bordered input-success w-full max-w-xs"
           />
