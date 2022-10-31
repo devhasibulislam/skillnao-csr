@@ -15,7 +15,6 @@ const CourseDescription = () => {
   const { id } = useParams();
   const { course, isLoading } = useGetSpecificCourse(id);
   const { user, isLoading: isLoadingUser } = useGetUser();
-  const [openSignInModal, setOpenSignInModal] = useState(false);
   const [openTRNXModal, setOpenTRNXModal] = useState(false);
   const [toggleState, setToggleState] = useState(1);
 
@@ -180,30 +179,9 @@ const CourseDescription = () => {
               এখনই অর্ডার করুন
             </label>
           </div>
-
-          {/* optional */}
-          <button
-            className="btn w-full bg-[#F9F9F9] border-[#FFB357] text-black hover:text-white"
-            onClick={() => setOpenSignInModal(true)}
-          >
-            {user ? "আপনি অলরেডি সাইনড ইন আছেন" : "অর্ডার করতে সাইন-ইন করুন"}
-          </button>
         </div>
       </div>
       {/* open modal */}
-
-      {/* optional */}
-      {openSignInModal &&
-        !(user?.role === "user") &&
-        user?.role !== "admin" && (
-          <Modal
-            openModal={openSignInModal}
-            setOpenModal={setOpenSignInModal}
-            content={<SignIn />}
-          />
-        )}
-
-      {/* mendatory */}
       {openTRNXModal && user?.role === "user" && user?.role !== "admin" ? (
         <Modal
           openModal={openTRNXModal}
