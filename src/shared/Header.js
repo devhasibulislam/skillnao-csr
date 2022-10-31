@@ -168,6 +168,7 @@ const Header = () => {
                         // window.location.replace(
                         //   "https://skillnao-csr.vercel.app/"
                         // );
+                        // window.location.replace("https://skillnao-csr.vercel.app/");
                         window.location.reload();
                       }}
                     >

@@ -5,10 +5,16 @@ import ConfirmOrder from "./ConfirmOrder";
 import Modal from "./Modal";
 import bkash from "../assets/order/bkashlogo.svg";
 import Highlight from "./home/Highlight";
+import useGetUser from "../utils/useGetUser";
 
 const TrnxID = ({ user, courseId }) => {
   const [openModal, setOpenModal] = useState(false);
   const [tid, setTID] = useState("");
+  const { user: usr, isLoading } = useGetUser();
+
+  if (isLoading) {
+    return <p>Loading...</p>;
+  }
 
   async function handleTrnxID(event) {
     event.preventDefault();
@@ -126,6 +132,7 @@ const TrnxID = ({ user, courseId }) => {
 
       {/* ask to open confirm modal */}
       {openModal && tid && (
+      {openModal && usr?.role === "user" && !usr?.role === "admin" && (
         <Modal
           openModal={openModal}
           setOpenModal={setOpenModal}

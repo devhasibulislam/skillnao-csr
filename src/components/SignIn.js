@@ -23,6 +23,7 @@ const SignIn = () => {
         if (response.data.acknowledgement) {
           toast.success("Successfully signed in new user");
           localStorage.setItem("skillNaoToken", response.data.data.token);
+          window.location.reload();
         }
       })
       .catch((error) => {
@@ -65,7 +66,7 @@ const SignIn = () => {
             <input
               type="password"
               name="password"
-              placeholder="পাসওয়ার্ড লিখুন"
+              placeholder="পাসওয়ার্ড লিখুন: length 6"
               className="input input-bordered input-success w-full max-w-xs"
               required
             />
