@@ -9,7 +9,6 @@ import useGetUser from "../utils/useGetUser";
 
 const TrnxID = ({ user, courseId }) => {
   const [openModal, setOpenModal] = useState(false);
-  const [tid, setTID] = useState("");
   const { user: usr, isLoading } = useGetUser();
 
   if (isLoading) {
@@ -42,8 +41,11 @@ const TrnxID = ({ user, courseId }) => {
       );
       const response = await request.json();
       if (response.acknowledgement) {
-        toast.success("TrnxID accepted and store on DB.");
+        toast.success("TrnxID accepted successfully.");
         addCourseId(courseId);
+        setTimeout(() => {
+          window.location.reload();
+        }, 5000);
         event.target.reset();
       }
     };
@@ -114,7 +116,6 @@ const TrnxID = ({ user, courseId }) => {
             type="text"
             name="trnx"
             className="input input-bordered input-success w-full max-w-xs"
-            onChange={(e) => setTID(e.target.value)}
             required
           />
         </div>
@@ -131,8 +132,7 @@ const TrnxID = ({ user, courseId }) => {
       </form>
 
       {/* ask to open confirm modal */}
-      {openModal && tid && (
-      {openModal && usr?.role === "user" && !usr?.role === "admin" && (
+      {(openModal && usr?.role === "user" && !usr?.role === "admin") && (
         <Modal
           openModal={openModal}
           setOpenModal={setOpenModal}
