@@ -56,7 +56,7 @@ const UpdateCourse = ({ course }) => {
       );
       const response = await request.json();
       if (response.acknowledgement) {
-        toast.success("New course insertion complete.");
+        toast.success("Course upgrading complete.");
         event.target.reset();
         window.location.reload();
       }

@@ -17,15 +17,17 @@ const ManageCourses = () => {
   }
 
   async function handleCourseRemove(id) {
-    const { data } = await axios.delete(`https://skillnao-ssr.onrender.com/course/${id}`, {
-      headers: {
-        "content-type": "application/json",
-        authorization: `Bearer ${localStorage.getItem("skillNaoToken")}`,
-      },
-    });
-    if (data.acknowledgement) {
-      toast.success("Successfully removed a course.");
-    }
+    const { data } = await axios.delete(
+      `https://skillnao-ssr.onrender.com/course/${id}`,
+      {
+        headers: {
+          "content-type": "application/json",
+          authorization: `Bearer ${localStorage.getItem("skillNaoToken")}`,
+        },
+      }
+    );
+
+    data && toast.success("Successfully removed a course.");
   }
 
   /**
