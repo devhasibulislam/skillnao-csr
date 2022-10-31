@@ -8,7 +8,7 @@ const ManageUsers = () => {
   const { users, isLoading } = useGetAllUsers();
 
   if (isLoading) {
-    return <MiniLoading/>;
+    return <MiniLoading />;
   }
 
   function handleUserToAdmin(id) {
@@ -66,15 +66,14 @@ const ManageUsers = () => {
                 <td>{user.email}</td>
                 <td>{user.whatsApp}</td>
                 <td>
-                  {/* <span
-                    className={`badge badge-success text-black`}
-                  >
-                    {user.trnxID}
-                  </span> */}
                   <select className="select select-sm select-success w-full">
                     {user?.role === "admin" ? (
                       <option disabled selected>
                         No TrnxID available
+                      </option>
+                    ) : user.transactionInfo.length === 0 ? (
+                      <option disabled selected>
+                        Not buy any course
                       </option>
                     ) : (
                       user.transactionInfo?.map((trnx, index) => (
@@ -133,7 +132,7 @@ const ManageUsers = () => {
                   </span>
                 </td>
               </tr>
-            ))}
+            )).reverse()}
           </tbody>
         </table>
       </div>
