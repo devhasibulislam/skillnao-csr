@@ -37,7 +37,7 @@ const AddCourse = () => {
     };
 
     const addNewCourse = async () => {
-      const request = await fetch("https://skillnao-ssr.onrender.com/course/", {
+      const request = await fetch("https://server.plannao.com/course/", {
         method: "POST",
         headers: {
           "content-type": "application/json",
