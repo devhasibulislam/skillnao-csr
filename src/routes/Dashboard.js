@@ -1,5 +1,6 @@
 import React from "react";
 import { NavLink, Outlet, useLocation } from "react-router-dom";
+import Title from "../components/Title";
 import MiniLoading from "../shared/MiniLoading";
 import useGetUser from "../utils/useGetUser";
 
@@ -8,7 +9,7 @@ const Dashboard = () => {
   const { user, isLoading } = useGetUser();
 
   if (isLoading) {
-    return <MiniLoading/>;
+    return <MiniLoading />;
   }
 
   /* new routes added here, just */
@@ -33,6 +34,7 @@ const Dashboard = () => {
 
   return (
     <section>
+      <Title title={"dashboard | add course"} />
       <div className="text-center bg-[#1A6241] py-20 mb-4 rounded">
         <div className="text-4xl text-white leading-relaxed font-bold">
           <h1>

@@ -1,5 +1,6 @@
 import React from "react";
 import Card from "../components/Card";
+import Title from "../components/Title";
 import MiniLoading from "../shared/MiniLoading";
 import useGetCoursesWithQuery from "../utils/useGetCoursesWithQuery";
 
@@ -11,6 +12,7 @@ const JobRelated = () => {
   }
   return (
     <section>
+      <Title title={"category | job-related"} />
       <h2 className="mb-4">
         Total Courses:{" "}
         <span className="text-[#ffb96d] font-semibold">{courses?.length}</span>

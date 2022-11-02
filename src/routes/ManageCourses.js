@@ -3,6 +3,7 @@ import React from "react";
 import { useState } from "react";
 import toast from "react-hot-toast";
 import Modal from "../components/Modal";
+import Title from "../components/Title";
 import UpdateCourse from "../components/UpdateCourse";
 import MiniLoading from "../shared/MiniLoading";
 import useGetAllCourses from "../utils/useGetAllCourses";
@@ -38,6 +39,7 @@ const ManageCourses = () => {
 
   return (
     <section>
+      <Title title={"dashboard | manage courses"} />
       <div>
         <h2 className="mb-4">
           Total Courses:{" "}

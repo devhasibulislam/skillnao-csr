@@ -1,5 +1,6 @@
 import React from 'react';
 import Card from '../components/Card';
+import Title from '../components/Title';
 import MiniLoading from '../shared/MiniLoading';
 import useGetAllCourses from '../utils/useGetAllCourses';
 
@@ -11,6 +12,7 @@ const AllCourses = () => {
     }
     return (
         <section>
+          <Title title={"category | all courses"} />
         <h2 className="mb-4">
           Total Courses:{" "}
           <span className="text-[#ffb96d] font-semibold">{courses?.length}</span>

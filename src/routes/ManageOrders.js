@@ -1,6 +1,7 @@
 import axios from "axios";
 import React from "react";
 import toast from "react-hot-toast";
+import Title from "../components/Title";
 import MiniLoading from "../shared/MiniLoading";
 import useGetAllUsers from "../utils/useGetAllUsers";
 
@@ -45,6 +46,7 @@ const ManageOrders = () => {
 
   return (
     <section>
+      <Title title={"dashboard | manage orders"} />
       <div className="overflow-x-auto">
         <table className="table w-full">
           <thead>

@@ -10,6 +10,7 @@ import Review from "../components/home/Review";
 import Solution from "../components/home/Solution";
 import Modal from "../components/Modal";
 import SignIn from "../components/SignIn";
+import Title from "../components/Title";
 import TrnxID from "../components/TrnxID";
 
 const Home = () => {
@@ -19,6 +20,7 @@ const Home = () => {
 
   return (
     <section>
+      <Title title={"Home"} />
       <Banner />
       {/* <PopularCourses/> */}
       <Solution />

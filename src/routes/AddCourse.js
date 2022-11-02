@@ -1,6 +1,7 @@
 import Axios from "axios";
 import React, { useState } from "react";
 import toast from "react-hot-toast";
+import Title from "../components/Title";
 
 const AddCourse = () => {
   const [thumbnail, setThumbnail] = useState("");
@@ -55,6 +56,7 @@ const AddCourse = () => {
 
   return (
     <section>
+      <Title title={"dashboard | add course"} />
       <form
         onSubmit={handleAddCourse}
         className="grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 items-center"

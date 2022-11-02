@@ -2,6 +2,7 @@ import React from "react";
 import useGetCoursesWithQuery from "../utils/useGetCoursesWithQuery";
 import Card from "../components/Card";
 import MiniLoading from "../shared/MiniLoading";
+import Title from "../components/Title";
 
 const Academic = () => {
   const { courses, isLoading } = useGetCoursesWithQuery("category=academic");
@@ -12,6 +13,7 @@ const Academic = () => {
 
   return (
     <section>
+      <Title title={"category | academic"} />
       <h2 className="mb-4">
         Total Courses:{" "}
         <span className="text-[#ffb96d] font-semibold">{courses?.length}</span>

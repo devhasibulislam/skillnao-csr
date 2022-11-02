@@ -1,6 +1,7 @@
 import React from "react";
 import { NavLink, Outlet, useLocation } from "react-router-dom";
 import CategoryBanner from "../components/CategoryBanner";
+import Title from "../components/Title";
 
 const Category = () => {
   const location = useLocation();
@@ -23,6 +24,7 @@ const Category = () => {
 
   return (
     <section>
+      <Title title={"category"} />
       <CategoryBanner />
       <div className="container mx-auto">
         <div className="drawer drawer-mobile">
