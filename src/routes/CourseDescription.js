@@ -57,7 +57,7 @@ const CourseDescription = () => {
             src={
               course.thumbnail.includes("http")
                 ? course.thumbnail
-                : `https://server.plannao.com/${course?.thumbnail}`
+                : `https://server.plannao.com/uploads/${course?.thumbnail}`
             }
             alt={course.title}
             className="my-8 rounded-2xl w-full"

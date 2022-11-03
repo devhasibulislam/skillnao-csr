@@ -9,14 +9,13 @@ const AddCourse = () => {
 
   function handleCourseThumbnail(event) {
     const formData = new FormData();
-    formData.append("file", event.target.files[0]);
-    formData.append("upload_preset", "gvtyd6ul");
+    formData.append("thumbnail", event.target.files[0]);
 
     Axios.post(
-      "https://api.cloudinary.com/v1_1/db3rsl7jn/image/upload",
+      "https://server.plannao.com/course/thumbnail",
       formData
     ).then((response) => {
-      setThumbnail(response.data.url);
+      setThumbnail(response.data.data.filename);
       toast.success("Course thumbnail uploaded.");
     });
   }

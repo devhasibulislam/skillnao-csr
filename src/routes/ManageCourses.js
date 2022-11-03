@@ -28,7 +28,7 @@ const ManageCourses = () => {
       }
     );
 
-    data && toast.success("Successfully removed a course.");
+    data.acknowledgement && toast.success("Successfully removed a course.");
   }
 
   /**
