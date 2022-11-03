@@ -19,7 +19,7 @@ const ManageCourses = () => {
 
   async function handleCourseRemove(id) {
     const { data } = await axios.delete(
-      `https://server.plannao.com/course/${id}`,
+      `https://skillnao-ssr.onrender.com/course/${id}`,
       {
         headers: {
           "content-type": "application/json",
@@ -101,7 +101,7 @@ const ManageCourses = () => {
                     src={
                       course?.thumbnail?.includes("http")
                         ? course?.thumbnail
-                        : `https://server.plannao.com/uploads/${course?.thumbnail}`
+                        : `https://skillnao-ssr.onrender.com/uploads/${course?.thumbnail}`
                     }
                     alt={course.title}
                     className="h-[250px] w-full object-cover"

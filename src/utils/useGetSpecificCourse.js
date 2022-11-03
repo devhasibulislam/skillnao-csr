@@ -5,7 +5,7 @@ function useGetSpecificCourse(id) {
   const fetcher = (url) => axios.get(url).then((res) => res.data);
 
   const { data, error } = useSWR(
-    `https://server.plannao.com/course/${id}`,
+    `https://skillnao-ssr.onrender.com/course/${id}`,
     fetcher,
     { refreshInterval: 1000 }
   );

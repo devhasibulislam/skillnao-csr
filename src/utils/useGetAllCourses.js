@@ -8,7 +8,7 @@ function useGetAllCourses() {
       .then((res) => res.data);
 
   const { data, error } = useSWR(
-    ["https://server.plannao.com/course", localStorage?.getItem("skillNaoToken")],
+    ["https://skillnao-ssr.onrender.com/course", localStorage?.getItem("skillNaoToken")],
     fetcher,
     { refreshInterval: 1000 }
   );

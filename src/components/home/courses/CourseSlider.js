@@ -53,7 +53,7 @@ const CourseSlider = ({ courses, setOpenModal, setCourse, setUser }) => {
                   src={
                     course?.thumbnail?.includes("http")
                       ? course?.thumbnail
-                      : `https://server.plannao.com/uploads/${course?.thumbnail}`
+                      : `https://skillnao-ssr.onrender.com/uploads/${course?.thumbnail}`
                   }
                   alt={course.title}
                   className="h-[250px] w-full object-cover rounded-t-2xl"
