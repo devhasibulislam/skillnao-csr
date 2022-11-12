@@ -112,7 +112,6 @@ const Header = () => {
                           window.location.replace(
                             "https://skillnao-csr.vercel.app/"
                           );
-                          // window.location.reload();
                         }}
                       >
                         লগ-আউট
@@ -165,10 +164,6 @@ const Header = () => {
                     <span
                       onClick={() => {
                         localStorage.removeItem("skillNaoToken");
-                        // window.location.replace(
-                        //   "https://skillnao-csr.vercel.app/"
-                        // );
-                        // window.location.replace("https://skillnao-csr.vercel.app/");
                         window.location.reload();
                       }}
                     >

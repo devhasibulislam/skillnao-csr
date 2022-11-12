@@ -21,12 +21,14 @@ const SignUp = () => {
     };
 
     axios
-      .post("https://skillnao-ssr.onrender.com/user/signup", userSignUpInfo)
+      .post("https://server.plannao.com/user/signup", userSignUpInfo)
       .then((data) => {
         if (data.data.acknowledgement) {
-          toast.success("Successfully signed up new user.");
+          toast.success("Check email to confirm registration");
           event.target.reset();
-          window.location.reload();
+          setTimeout(() => {
+            window.location.reload();
+          }, 2000);
         }
       })
       .catch((error) => {
